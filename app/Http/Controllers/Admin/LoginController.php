@@ -63,7 +63,13 @@ class LoginController extends Controller
             elseif ($request->has('phone') && $phone != ''):
                 $user = User::where('phone', $phone)->first();
             endif;
-
+            if ($user->user_type == 'admin'){
+                return response()->json([
+                    'error' => __('Use admin login instead'),
+                    'redirect' => 1,
+                    'url' => route('admin.login.form')
+                ]);
+            }
             if (blank($user)):
                 return response()->json([
                     'error' => __('User Not found')
@@ -102,7 +108,7 @@ class LoginController extends Controller
                     }
 
                 endif;
-
+                
                 if (settingHelper('seller_system') != 1):
                     if (request()->ajax())
                     {

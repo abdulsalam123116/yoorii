@@ -47,6 +47,9 @@
                 position: 'bottomRight'
             });
             toastr.clear();
+            @if(Session::has('redirect'))
+                window.location.href = '{{ Session::get('url') }}'
+            @endif
             return false;
         });
     </script>
