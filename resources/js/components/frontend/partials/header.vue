@@ -39,7 +39,7 @@
 									><span class="mdi mdi-name mdi-apple"></span> <small>{{ lang.app_store }}</small></a
 								>
 							</li>
-							<li v-if="settings.seller_system == 1 && !authUser">
+							<li v-if="!authUser">
 								<router-link
 									:to="{
 										name: 'seller-register',

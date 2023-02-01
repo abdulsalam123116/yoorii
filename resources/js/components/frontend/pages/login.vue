@@ -66,7 +66,7 @@
                 <button type="button" href="javascript:void(0)" @click="copyLoginInfo('admin@spagreen.net')"
                         class="btn copy_btn">Admin
                 </button>
-                <button v-if="settings.seller_system == 1" type="button" href="javascript:void(0)"
+                <button type="button" href="javascript:void(0)"
                         @click="copyLoginInfo('seller@spagreen.net')" class="btn copy_btn">Seller
                 </button>
                 <button type="button" href="javascript:void(0)" @click="copyLoginInfo('customer@spagreen.net')"

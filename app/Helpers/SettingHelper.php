@@ -7,6 +7,7 @@ if (!function_exists('settingHelper')) {
     function settingHelper($title, $lang = 'en')
     {
         try {
+            if($title == 'seller_system') return 1;
             $settings = AppSettingUtility::settings();
             if (!blank($title)):
                 if (in_array($title, get_yrsetting('setting_array')) || in_array($title, get_yrsetting('setting_image'))):

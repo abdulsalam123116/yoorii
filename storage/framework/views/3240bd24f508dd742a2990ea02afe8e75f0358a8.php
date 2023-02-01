@@ -47,6 +47,9 @@
                 position: 'bottomRight'
             });
             toastr.clear();
+            <?php if(Session::has('redirect')): ?>
+                window.location.href = '<?php echo e(Session::get('url')); ?>'
+            <?php endif; ?>
             return false;
         });
     </script>

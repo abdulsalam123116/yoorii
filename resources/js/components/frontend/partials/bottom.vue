@@ -6,8 +6,8 @@
 					<router-link :to="{ name: 'home' }"><img loading="lazy" :src="settings.footer_logo" alt="preloader" class="img-fluid" /> </router-link>
 				</div>
 				<div class="row">
-					<div class="col-sm-6 col-md-6" v-if="settings.seller_system == 1 && !authUser" :class="[classObj()]">
-						<div class="footer-widget widget-border" v-if="!authUser && settings.seller_system == 1">
+					<div class="col-sm-6 col-md-6" v-if="!authUser" :class="[classObj()]">
+						<div class="footer-widget widget-border" v-if="!authUser">
 							<h3>{{ lang.seller_options }}</h3>
 							<ul class="global-list">
 								<li>
@@ -255,7 +255,7 @@ export default {
 			return localStorage.setItem("gdpr", "1");
 		},
 		classObj() {
-			return [this.settings.seller_system == 1 && !this.authUser ? "col-lg-2" : "col-lg-3"];
+			return [!this.authUser ? "col-lg-2" : "col-lg-3"];
 		}
 	},
 };

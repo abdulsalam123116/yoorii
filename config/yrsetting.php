@@ -64,6 +64,7 @@ return [
         'category_default_banner',
         'featured_category_banner',
         'invoice_based_shipping_fee',
+        'seller_system'
     ],
 
     'is_twilio_sms_activated' => [

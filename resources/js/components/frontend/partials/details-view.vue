@@ -297,7 +297,7 @@
 					<!-- /.col-lg-8 -->
 					<div v-if="$route.name == 'product.details'" class="col-lg-4 col-md-4">
 						<div class="sg-seller-product pb-sm-3">
-              <ul class="product_sidebar_store" v-if="settings.seller_system == 1 && productDetails.seller && $route.name == 'product.details'">
+              <ul class="product_sidebar_store" v-if="productDetails.seller && $route.name == 'product.details'">
                 <single_seller  :shop="productDetails.seller"></single_seller>
               </ul>
 							<div class="product-offer" v-if="settings.product_details_site_banner">

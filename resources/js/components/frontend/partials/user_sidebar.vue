@@ -6,7 +6,7 @@
             </div>
             <h2>{{ authUser.full_name }} <router-link class="d-inline" :to="{ name : 'edit.profile' }"><span class="mdi mdi-name mdi-pencil"></span></router-link></h2>
             <a href="javascript:void(0)">{{ authUser.email }}</a>
-            <router-link class="be_seller base" :to="{ name : 'migrate.seller' }"  v-if="settings.seller_system == 1">
+            <router-link class="be_seller base" :to="{ name : 'migrate.seller' }" >
                 {{ lang.be_a_seller }} <span class="mdi mdi-name mdi-store-outline"></span>
             </router-link>
         </div>
@@ -57,7 +57,7 @@
                         class="mdi mdi-vector-point"></span>{{ lang.my_rewards }}
                     </router-link>
                 </li>
-                <li v-if="settings.seller_system == 1" :class="{active: current === 'followed_shop'}">
+                <li :class="{active: current === 'followed_shop'}">
                     <router-link :to="{ name : 'shop.followed' }"><span
                         class="mdi mdi-home-heart"></span>{{ lang.shop }}
                     </router-link>
