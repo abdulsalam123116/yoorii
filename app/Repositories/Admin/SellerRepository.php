@@ -12,6 +12,7 @@ use Cartalyst\Sentinel\Laravel\Facades\Activation;
 use Illuminate\Support\Facades\DB;
 use Sentinel;
 use Carbon\Carbon;
+use Intervention\Image\Facades\Image;
 
 class SellerRepository implements SellerInterface
 {
@@ -74,6 +75,15 @@ class SellerRepository implements SellerInterface
             $image_response = $this->saveImage($requestImage, '_staff_');
         }
 
+        if (!blank($request->file('license'))) {
+            $requestImage   = $request->file('license');
+            $license_response = $this->saveFile($requestImage, 'pos_file',false);
+        }
+
+        if (!blank($request->file('vat'))) {
+            $requestImage   = $request->file('vat');
+            $vat_response = $this->saveFile($requestImage, 'pos_file',false);
+        }
         $user = new User();
         $user->first_name       = $request->first_name;
         $user->last_name        = $request->last_name;
@@ -84,6 +94,8 @@ class SellerRepository implements SellerInterface
         $user->password         = bcrypt($request->password);
         $user->permissions      = [];
         $user->images           = $image_response['images'] ?? [];
+        $user->vat              = $vat_response['image'] ?? [];
+        $user->license           = $license_response['image'] ?? [];
         $user->save();
 
         $request['user_id'] = $user->id;

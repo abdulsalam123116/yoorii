@@ -57,6 +57,22 @@
                                 <input type="text" v-model="form.address" class="form-control" :class="{ 'error_border' : errors.address }" :placeholder="lang.shop_address" />
                             </div>
                             <span class="validation_error" v-if="errors.address">{{ errors.address[0] }}</span>
+
+                            
+                            <div class="form-group m-2">
+                                <label for="">License Trading</label>
+                                <div class="form-group">
+                                    <input type="file"  @change="uploadLicense" ref="file" class="custom-file-input image_pick file-select"   :placeholder="lang.license" value=""/>
+                                </div>
+                                <span class="validation_error" v-if="errors.license">{{ errors.license[0] }}</span>
+                            </div>
+                            <div class="form-group m-2">
+                                <label for="">VAT File</label>
+                                <div class="form-group">
+                                    <input type="file"  @change="uploadVat" ref="file" class="custom-file-input image_pick file-select" :placeholder="lang.vat" value=""/>
+                                </div>
+                                <span class="validation_error" v-if="errors.vat">{{ errors.vat[0] }}</span>
+                            </div>
                             <div class="form-checkbox">
                                 <div class="form-group" v-if="settings.seller_agreement">
                                     <input type="checkbox" id="tnc" value="2"
@@ -109,6 +125,8 @@ export default {
                 shop_name : '',
                 phone : '',
                 address : '',
+                license : '',
+                vat : '',
                 phone_no:'',
                 otp:'',
                 user_type: this.$route.params.type,
@@ -126,6 +144,12 @@ export default {
       getNumber(number){
         this.form.phone = number;
       },
+      uploadLicense() {
+        this.license = this.$refs.file.files[0];
+      },
+      uploadVat() {
+        this.form.vat = this.$refs.file.files[0];
+      },
         register()
         {
             if (this.settings.seller_agreement && !this.agreement)
@@ -136,7 +160,22 @@ export default {
             let url = this.getUrl('seller-register');
             this.loading = true;
             this.form.real_otp = this.otp;
-            axios.post(url,this.form).then((response) => {
+            const formData = new FormData();
+            formData.append('license', this.form.license);
+            formData.append('vat', this.form.vat);
+            formData.append('first_name', this.form.first_name);
+            formData.append('last_name', this.form.last_name);
+            formData.append('email', this.form.email);
+            formData.append('password', this.form.password);
+            formData.append('password_confirmation', this.form.password_confirmation);
+            formData.append('shop_name', this.form.shop_name);
+            formData.append('phone', this.form.phone);
+            formData.append('address', this.form.address);
+            formData.append('phone_no', this.form.phone_no);
+            formData.append('otp', this.form.otp);
+            formData.append('user_type', this.form.user_type);
+            const headers = { 'Content-Type': 'multipart/form-data' };
+            axios.post(url,formData, { headers }).then((response) => {
                 this.loading = false;
                 if (response.data.error)
                 {

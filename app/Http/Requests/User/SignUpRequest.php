@@ -34,6 +34,7 @@ class SignUpRequest extends FormRequest
                 'password'      => 'required|confirmed|required_without:phone|min:6|max:50',
                 'shop_name'     => 'required',
                 'address'       => 'required',
+                'license'       => 'required',
             ];
         }
         if ($request->user_type == 'seller-migrate')
