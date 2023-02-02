@@ -229,6 +229,61 @@
                         </div>
                     </div>
                 </div>
+                <div class="col-md-6">
+                    <div class="row">
+                        <div class="card col-md-11 middle">
+                            <div class="card-header">
+                                <h4><?php echo e(__('Cash On Delivery')); ?></h4>
+                                <div class="card-header-action">
+                                    <button class="btn btn-link collapsed" data-toggle="collapse"
+                                            data-target="#collapseThree" aria-expanded="false"
+                                            aria-controls="collapseThree">
+                                        <i class='bx bx-plus'></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <div class="collapse" id="collapseThree">
+                                        <div class="card-body">
+                                            <div class="form-group row mt-2">
+                                                <label
+                                                    class="col-md-5 col-from-label"><?php echo e(__('Active Account')); ?></label>
+                                                <div class="col-md-7">
+                                                    <label class="custom-switch">
+                                                        <input type="checkbox"
+                                                               <?php echo e(@$cod->status == 1 ? 'checked' : ''); ?> value="active-method-status-change/<?php echo e(@$cod->id); ?>/is_cod_active"
+                                                               name="active_account"
+                                                               class="custom-switch-input account-active-status-change">
+                                                        <span class="custom-switch-indicator"></span>
+                                                    </label>
+                                                    <?php if($errors->has('cod')): ?>
+                                                        <div class="invalid-feedback">
+                                                            <p><?php echo e($errors->first('cod')); ?></p>
+                                                        </div>
+                                                    <?php endif; ?>
+                                                </div>
+                                            </div>
+                                            <div class="form-group row mt-2">
+                                                <label
+                                                    class="col-md-5 col-from-label"><?php echo e(__('Default Account')); ?></label>
+                                                <div class="col-md-7">
+                                                    <label class="custom-switch <?php echo e(@$cod->is_default == 1 ? 'cursor-not-allowed' : ''); ?>">
+                                                        <input type="checkbox"
+                                                               <?php echo e(@$cod->is_default == 1 ? 'checked' : ''); ?> value="default-status-change/<?php echo e(@$cod->id); ?>"
+                                                               name="bank_payment"
+                                                               class="custom-switch-input <?php echo e(@$cod->is_default == 1 ? '' : 'status-change'); ?>" <?php echo e(@$cod->is_default == 1 ? 'disabled' : ''); ?>>
+                                                        <span class="custom-switch-indicator"></span>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>

@@ -165,6 +165,10 @@
                                         @endif
                                     </div>
                                 </div>
+                                @if(isset($user))
+                                    <a class="btn btn-icon icon-left btn-outline-primary" href="{{ static_asset($user->license) }}" target="_blank" ><i class='mdi mdi-eye' aria-hidden="true"></i> {{ __('License Trading') }}</a>
+                                    <a class="btn btn-icon icon-left btn-outline-primary" href="{{ static_asset($user->vat) }}" target="_blank" ><i class='mdi mdi-eye' aria-hidden="true"></i> {{ __('Vat') }}</a>
+                                @endif
                             </div>
                         </div>
                     </div>

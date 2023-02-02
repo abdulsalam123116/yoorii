@@ -166,6 +166,10 @@
                                         <?php endif; ?>
                                     </div>
                                 </div>
+                                <?php if(isset($user)): ?>
+                                    <a class="btn btn-icon icon-left btn-outline-primary" href="<?php echo e(static_asset($user->license)); ?>" target="_blank" ><i class='mdi mdi-eye' aria-hidden="true"></i> <?php echo e(__('License Trading')); ?></a>
+                                    <a class="btn btn-icon icon-left btn-outline-primary" href="<?php echo e(static_asset($user->vat)); ?>" target="_blank" ><i class='mdi mdi-eye' aria-hidden="true"></i> <?php echo e(__('Vat')); ?></a>
+                                <?php endif; ?>
                             </div>
                         </div>
                     </div>

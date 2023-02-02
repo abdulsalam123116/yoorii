@@ -23,8 +23,9 @@ class AccountController extends Controller
     {
         $account = Account::where('user_id', Sentinel::getUser()->id)->get();
         $paypal = $account->where('account_type', 'paypal')->first();
+        $cod = $account->where('account_type', 'cod')->first();
         $bank_account = $account->where('account_type', 'bank')->first();
-        return view('seller.payment.payment', compact('bank_account', 'paypal'));
+        return view('seller.payment.payment', compact('bank_account', 'paypal','cod'));
     }
 
     public function updatePaymentAccount(Request $request)
@@ -51,6 +52,7 @@ class AccountController extends Controller
             return response()->json($response);
         endif;
         DB::beginTransaction();
+        
         try {
             $this->account->defaultStatusChange($request['data']);
             $response['message'] = __('Updated Successfully');
