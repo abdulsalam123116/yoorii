@@ -52,11 +52,16 @@ class RegisterController extends Controller
                 }
                 RegistrationRequest::where('phone',$request->phone)->delete();
                 $request['password'] = '123456';
+                if($request->type == 'company') $request['user_type'] = 'company';
                 $sellerData = Sentinel::registerAndActivate($request->all());
             }
             if (!$request->phone) {
-                $sellerData = Sentinel::register($request->all());
-                $activation = Activation::create($sellerData);
+                if($request->type == 'company'){
+                    $sellerData = Sentinel::register($request->all());
+                    $activation = Activation::create($sellerData);
+                } else {
+                    $sellerData = Sentinel::registerAndActivate($request->all());
+                }
             }
             if ($request->email) {
 //                    $this->sendMail($sellerData, $activation->code, 'verify_email');

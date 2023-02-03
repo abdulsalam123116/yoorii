@@ -45,10 +45,16 @@
 
                   <span class="validation_error" v-if="errors.phone">{{ errors.phone[0] }}</span>
                 </div>
-                <div v-if="addons.includes('otp_system')" class="form-group text-end mb-3">
+                <div v-if="addons.includes('otp_system') && optionToType == 'customer'" class="form-group text-end mb-3">
                   <a v-if="!otp" href="javascript:void(0)" class="btn sign-in-option"
                      @click="loginOptions(optionTo)">{{
                       optionTo == 'email' ? lang.use_email_instead : lang.use_phone_instead
+                    }}</a>
+                </div>
+                <div class="form-group text-end mb-3">
+                  <a v-if="!type" href="javascript:void(0)" class="btn sign-in-option"
+                     @click="loginOptionsType(optionToType)">{{
+                      optionToType == 'customer' ? 'Company Account' : 'Regular Account'
                     }}</a>
                 </div>
                 <div class="form-group" v-if="optionTo == 'phone'"
@@ -72,6 +78,20 @@
                 <span class="mdi mdi-name mdi-lock-outline"></span>
                 <input type="text" v-model="form.otp" class="form-control otp mb-0"
                        :class="{ 'error_border' : errors.otp }" :placeholder="lang.enter_oTP"/>
+              </div>
+              <div v-if="optionToType == 'company'" class="form-group m-2">
+                  <label for="">License Trading</label>
+                  <div class="form-group">
+                      <input type="file"  @change="uploadLicense" ref="file" class="custom-file-input image_pick file-select"   :placeholder="lang.license" value=""/>
+                  </div>
+                  <span class="validation_error" v-if="errors.license">{{ errors.license[0] }}</span>
+              </div>
+              <div v-if="optionToType == 'company'" class="form-group m-2">
+                  <label for="">VAT File</label>
+                  <div class="form-group">
+                      <input type="file"  @change="uploadVat" ref="file" class="custom-file-input image_pick file-select" :placeholder="lang.vat" value=""/>
+                  </div>
+                  <span class="validation_error" v-if="errors.vat">{{ errors.vat[0] }}</span>
               </div>
               <div v-if="addons.includes('otp_system') && otp">
                 <p class="count_down_timer">
@@ -161,9 +181,13 @@ export default {
         address: '',
         phone_no: '',
         otp: '',
+        type: '',
+        license : '',
+        vat : '',
         user_type: this.$route.params.type,
       },
       optionTo: 'phone',
+      optionToType: 'customer',
       social_login_active: false,
       loading: false,
       buttonText: 'Get OTP',
@@ -171,6 +195,7 @@ export default {
       minute: 1,
       second: 60,
       otp: '',
+      type: '',
       agreement: '',
       country_code: []
     }
@@ -190,6 +215,12 @@ export default {
     }
   },
   methods: {
+    uploadLicense() {
+      this.form.license = this.$refs.file.files[0];
+    },
+    uploadVat() {
+      this.form.vat = this.$refs.file.files[0];
+    },
     countDownTimer() {
       this.minute = 1;
       this.second = 60;
@@ -214,8 +245,9 @@ export default {
       this.form.real_otp = this.otp;
       if (this.form.real_otp != this.otp) {
         toastr.error(this.lang.OTP_doesnt_match, this.lang.Error + ' !!');
-      }
-      axios.post(url, this.form).then((response) => {
+      
+      }const headers = { 'Content-Type': 'multipart/form-data' };
+      axios.post(url, this.form, { headers }).then((response) => {
         this.loading = false;
         if (response.data.error) {
           this.$Progress.fail();
@@ -351,7 +383,19 @@ export default {
           this.optionTo = 'phone';
         }
       }
-
+    },
+    loginOptionsType(optionTo) {
+        if (optionTo) {
+          this.buttonText = 'Sign Up';
+          this.optionTo = 'phone';
+          if (optionTo == 'customer') {
+            this.optionToType = 'company';
+            this.form.type = 'customer'
+          } else {
+            this.optionToType = 'customer';
+            this.form.type = 'company'
+          }
+        }
     },
     registerByPhone() {
       this.form.email = null;
