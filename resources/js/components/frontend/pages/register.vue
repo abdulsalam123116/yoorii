@@ -45,14 +45,14 @@
 
                   <span class="validation_error" v-if="errors.phone">{{ errors.phone[0] }}</span>
                 </div>
-                <div v-if="addons.includes('otp_system') && optionToType == 'customer'" class="form-group text-end mb-3">
+                <div v-if="addons.includes('otp_system') && optionToType == 'company'" class="form-group text-end mb-3">
                   <a v-if="!otp" href="javascript:void(0)" class="btn sign-in-option"
                      @click="loginOptions(optionTo)">{{
                       optionTo == 'email' ? lang.use_email_instead : lang.use_phone_instead
                     }}</a>
                 </div>
                 <div class="form-group text-end mb-3">
-                  <a v-if="!type" href="javascript:void(0)" class="btn sign-in-option"
+                  <a href="javascript:void(0)" class="btn sign-in-option"
                      @click="loginOptionsType(optionToType)">{{
                       optionToType == 'customer' ? 'Company Account' : 'Regular Account'
                     }}</a>
