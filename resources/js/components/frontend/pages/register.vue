@@ -45,7 +45,7 @@
 
                   <span class="validation_error" v-if="errors.phone">{{ errors.phone[0] }}</span>
                 </div>
-                <div v-if="addons.includes('otp_system') && optionToType == 'company'" class="form-group text-end mb-3">
+                <div v-if="addons.includes('otp_system') && optionToType == 'customer'" class="form-group text-end mb-3">
                   <a v-if="!otp" href="javascript:void(0)" class="btn sign-in-option"
                      @click="loginOptions(optionTo)">{{
                       optionTo == 'email' ? lang.use_email_instead : lang.use_phone_instead
@@ -57,6 +57,7 @@
                       optionToType == 'customer' ? 'Company Account' : 'Regular Account'
                     }}</a>
                 </div>
+                
                 <div class="form-group" v-if="optionTo == 'phone'"
                      :class="{ 'mt-4' : !addons.includes('otp_system') }">
                   <span class="mdi mdi-name mdi-lock-outline"></span>
@@ -208,6 +209,7 @@ export default {
 
   mounted() {
     this.loginOptions();
+    this.loginOptionsType();
   },
   computed: {
     loginRedirect() {
@@ -395,7 +397,10 @@ export default {
             this.optionToType = 'customer';
             this.form.type = 'company'
           }
-        }
+        } else {
+            this.optionToType = 'customer';
+            this.form.type = 'company'
+          }
     },
     registerByPhone() {
       this.form.email = null;
