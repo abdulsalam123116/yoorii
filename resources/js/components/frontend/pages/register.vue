@@ -83,7 +83,7 @@
               <div v-if="optionToType == 'company'" class="form-group m-2">
                   <label for="">License Trading</label>
                   <div class="form-group">
-                      <input type="file"  @change="uploadLicense" ref="file" class="custom-file-input image_pick file-select"   :placeholder="lang.license" value=""/>
+                      <input type="file"  @change="uploadLicense" ref="filel" class="custom-file-input image_pick file-select"   :placeholder="lang.license" value=""/>
                   </div>
                   <span class="validation_error" v-if="errors.license">{{ errors.license[0] }}</span>
               </div>
@@ -183,8 +183,8 @@ export default {
         phone_no: '',
         otp: '',
         type: '',
-        license : '',
-        vat : '',
+        lnse : null,
+        vat : null,
         user_type: this.$route.params.type,
       },
       optionTo: 'phone',
@@ -218,7 +218,7 @@ export default {
   },
   methods: {
     uploadLicense() {
-      this.form.license = this.$refs.file.files[0];
+      this.form.lnse = this.$refs.filel.files[0];
     },
     uploadVat() {
       this.form.vat = this.$refs.file.files[0];
@@ -248,8 +248,23 @@ export default {
       if (this.form.real_otp != this.otp) {
         toastr.error(this.lang.OTP_doesnt_match, this.lang.Error + ' !!');
       
-      }const headers = { 'Content-Type': 'multipart/form-data' };
-      axios.post(url, this.form, { headers }).then((response) => {
+      }
+      const formData = new FormData();
+      formData.append('license', this.form.lnse);
+      formData.append('vat', this.form.vat);
+      formData.append('first_name', this.form.first_name);
+      formData.append('last_name', this.form.last_name);
+      formData.append('email', this.form.email);
+      formData.append('password', this.form.password);
+      formData.append('password_confirmation', this.form.password_confirmation);
+      formData.append('phone', this.form.phone);
+      formData.append('address', this.form.address);
+      formData.append('phone_no', this.form.phone_no);
+      formData.append('otp', this.form.otp);
+      formData.append('real_otp', this.form.real_otp);
+      formData.append('user_type', this.form.user_type);
+      const headers = { 'Content-Type': 'multipart/form-data' };
+      axios.post(url, formData, { headers }).then((response) => {
         this.loading = false;
         if (response.data.error) {
           this.$Progress.fail();
@@ -392,14 +407,17 @@ export default {
           this.optionTo = 'phone';
           if (optionTo == 'customer') {
             this.optionToType = 'company';
-            this.form.type = 'customer'
+            this.form.type = 'company'
+            this.form.user_type = 'company'
           } else {
             this.optionToType = 'customer';
-            this.form.type = 'company'
+            this.form.type = 'customer'
+            this.form.user_type = 'customer'
           }
         } else {
             this.optionToType = 'customer';
-            this.form.type = 'company'
+            this.form.type = 'customer'
+            this.form.user_type = 'customer'
           }
     },
     registerByPhone() {

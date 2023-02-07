@@ -65,7 +65,9 @@ class RegisterController extends Controller
             }
             if ($request->email) {
 //                    $this->sendMail($sellerData, $activation->code, 'verify_email');
-                $this->sendmail($request->email, 'Registration', $sellerData, 'email.auth.activate-account-email',url('/') . '/activation/' . $request->email . '/' . $activation->code);
+                if($request->type == 'company'){
+                    $this->sendmail($request->email, 'Registration', $sellerData, 'email.auth.activate-account-email',url('/') . '/activation/' . $request->email . '/' . $activation->code);
+                } 
                 if($sellerData){
                     $user_id = $sellerData->id;
                     $sellerData['id'] = 1;
