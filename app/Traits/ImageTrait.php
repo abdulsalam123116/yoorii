@@ -505,7 +505,8 @@ trait ImageTrait
                 );
             endif;
             $error = false;
-            $size = File::size(public_path($originalImageUrl));
+            $size = File::size(public_path('public/'.$originalImageUrl));
+            // $size = File::size(public_path($originalImageUrl));
             if ($storage == 'aws_s3' && array_key_exists('storage', $images)):
                 $response = $this->uploadToS3($images, $content_type);
                 if ($response === true):
