@@ -103,6 +103,9 @@
                 <button type="submit" class="btn" v-if="otp && !loading"
                         :class="{ 'disable_btn' : form.otp.length != 5 }">{{ lang.sign_up }}
                 </button>
+                <button type="submit" class="btn"
+                        >Switch To company Account
+                </button>
               </div>
               <div class="form-checkbox">
                 <div class="form-group" v-if="settings.customer_agreement">
@@ -163,12 +166,13 @@
 <script>
 import telePhone from "../partials/telephone";
 import {FacebookAuthProvider, getAuth, GoogleAuthProvider, signInWithPopup, TwitterAuthProvider} from "firebase/auth";
+import ToggleSwitch from 'vuejs-toggle-switch'
 
 
 export default {
   name: "register",
   components: {
-    telePhone,
+    telePhone,ToggleSwitch
   },
   data() {
     return {
@@ -187,6 +191,7 @@ export default {
         vat : null,
         user_type: this.$route.params.type,
       },
+     
       optionTo: 'phone',
       optionToType: 'customer',
       social_login_active: false,
