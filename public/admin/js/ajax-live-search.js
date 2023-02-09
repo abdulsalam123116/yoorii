@@ -10,7 +10,6 @@ $(function() {
         stateAjax();
         timezoneAjax();
         blogAjax();
-
         $('.all-user-by-ajax').select2({
             placeholder: "Select User",
             minimumInputLength: 2,
@@ -174,6 +173,46 @@ function sellerAjax(section_no)
     });
 }
 
+function customerAjax(section_no)
+{
+    var url = $('#url').val();
+
+    let selector;
+
+    if (section_no)
+    {
+        selector = $('.customer-by-ajax_'+section_no);
+    }
+    else{
+        selector = $('.customer-by-ajax');
+    }
+    var user_type = $('#get_user_type').val();
+
+    selector.select2({
+        placeholder: "Select Customer",
+        minimumInputLength: 2,
+        ajax: {
+            type: "GET",
+            dataType: 'json',
+            url: url + '/' + user_type +'/customer-by-ajax',
+            data: function (params) {
+                return {
+                    q: params.term // search term
+                };
+            },
+            delay: 250,
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+            processResults: function (data) {
+                return {
+                    results: data
+                };
+            },
+            cache: true
+        }
+    });
+}
 function blogAjax(section_no)
 {
     var url = $('#url').val();

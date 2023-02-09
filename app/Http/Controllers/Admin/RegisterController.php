@@ -14,6 +14,7 @@ use Brian2694\Toastr\Facades\Toastr;
 use Carbon\Carbon;
 use Cartalyst\Sentinel\Laravel\Facades\Activation;
 use App\Http\Controllers\Controller;
+use App\Traits\ImageTrait;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Sentinel;
@@ -21,6 +22,7 @@ use Sentinel;
 
 class RegisterController extends Controller
 {
+    use ImageTrait;
     use SmsSenderTrait,SendMailTrait,SendNotification;
 
     public function register()
@@ -33,7 +35,19 @@ class RegisterController extends Controller
     {
         DB::beginTransaction();
         try {
-
+            $data = $request->all();
+            if (!blank($request->file('license'))) {
+                $requestImage   = $request->file('license');
+                $license_response = $this->saveFile($requestImage, '_file_');
+                $data['license'] = $license_response;
+            }
+    
+            if (!blank($request->file('vat'))) {
+                $requestImage   = $request->file('vat');
+                $vat_response = $this->saveFile($requestImage, '_file_');
+                $data['vat'] = $vat_response??'';
+            }
+            $data['user_type'] = $request->user_type == 'company'? 'company':'customer';
             if ($request->phone) {
                 $request['phone'] = str_replace(' ','',$request->phone);
                 $req = RegistrationRequest::where('phone',$request->phone)->first();
@@ -52,20 +66,21 @@ class RegisterController extends Controller
                 }
                 RegistrationRequest::where('phone',$request->phone)->delete();
                 $request['password'] = '123456';
-                if($request->type == 'company') $request['user_type'] = 'company';
-                $sellerData = Sentinel::registerAndActivate($request->all());
+                
+                $sellerData = Sentinel::registerAndActivate($data);
             }
+            
             if (!$request->phone) {
-                if($request->type == 'company'){
-                    $sellerData = Sentinel::register($request->all());
+                if($request->user_type == 'company'){
+                    $sellerData = Sentinel::register($data);
                     $activation = Activation::create($sellerData);
                 } else {
-                    $sellerData = Sentinel::registerAndActivate($request->all());
+                    $sellerData = Sentinel::registerAndActivate($data);
                 }
             }
             if ($request->email) {
 //                    $this->sendMail($sellerData, $activation->code, 'verify_email');
-                if($request->type == 'company'){
+                if($request->user_type == 'company'){
                     $this->sendmail($request->email, 'Registration', $sellerData, 'email.auth.activate-account-email',url('/') . '/activation/' . $request->email . '/' . $activation->code);
                 } 
                 if($sellerData){

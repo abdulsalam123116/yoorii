@@ -51,12 +51,12 @@
                       optionTo == 'email' ? lang.use_email_instead : lang.use_phone_instead
                     }}</a>
                 </div>
-                <div class="form-group text-end mb-3">
+                <!-- <div class="form-group text-end mb-3">
                   <a href="javascript:void(0)" class="btn sign-in-option"
                      @click="loginOptionsType(optionToType)">{{
                       optionToType == 'customer' ? 'Company Account' : 'Regular Account'
                     }}</a>
-                </div>
+                </div> -->
                 
                 <div class="form-group" v-if="optionTo == 'phone'"
                      :class="{ 'mt-4' : !addons.includes('otp_system') }">
@@ -103,9 +103,6 @@
                 <button type="submit" class="btn" v-if="otp && !loading"
                         :class="{ 'disable_btn' : form.otp.length != 5 }">{{ lang.sign_up }}
                 </button>
-                <button type="submit" class="btn"
-                        >Switch To company Account
-                </button>
               </div>
               <div class="form-checkbox">
                 <div class="form-group" v-if="settings.customer_agreement">
@@ -122,6 +119,9 @@
                   </label>
                 </div>
               </div>
+              <button type="button" class="btn" @click="loginOptionsType(optionToType)">
+                {{ 'Switch to '+ (optionToType == 'customer' ? 'Company Account' : 'Regular Account') }}
+              </button>
               <button type="submit" class="btn" v-if="optionTo == 'phone' && !loading">
                 {{ lang.sign_up }}
               </button>

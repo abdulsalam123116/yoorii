@@ -589,7 +589,7 @@ trait ImageTrait
             $originalFileUrl = $directory . $originalFile;
 
             $requested_file->move('public/'.$directory, 'public/'.$originalFileUrl);
-
+            if($type == '_file_') return $originalFileUrl;
             if ($storage == 'aws_s3'):
                 $response = $this->uploadFileToS3($originalFileUrl, $content_type);
 
@@ -623,7 +623,7 @@ trait ImageTrait
                 $media->image_variants  = [];
                 $media->save();
             endif;
-
+            
 
             if($type == 'pos_file'):
                 return ['storage' => $storage, 'image' => $originalFileUrl];

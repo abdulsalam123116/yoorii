@@ -30,6 +30,8 @@ class User extends EloquentUser implements JWTSubject, ContractAuthenticatable
         'is_password_set',
         'gender',
         'permissions',
+        'license',
+        'vat',
     ];
     protected $hidden = [
         'password',

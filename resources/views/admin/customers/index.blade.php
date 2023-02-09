@@ -59,6 +59,7 @@
                                         <th>{{ __('Phone') }}</th>
                                         <th>{{ __('Current Balance') }}</th>
                                         <th>{{ __('Last Login') }}</th>
+                                        <th>{{ __('Type') }}</th>
                                         <th>{{ __('Status') }}</th>
                                         @if (hasPermission('customer_update') || hasPermission('customer_delete'))
                                             <th>{{ __('Options') }}</th>
@@ -100,6 +101,7 @@
                                             <td> {{ isDemoServer() ? Str::of($user->phone)->mask('*', 0, strlen($user->phone)-3) : @$user->phone }}</td>
                                             <td>{{ get_price($user->balance) }}</td>
                                             <td>{{ $user->last_login != '' ? date('M d, Y h:i a', strtotime($user->last_login)) : '' }}</td>
+                                            <td>{{ $user->user_type}}</td>
                                             <td>
                                                 @if($user->is_user_banned == 1)
                                                     <div class="d-flex">

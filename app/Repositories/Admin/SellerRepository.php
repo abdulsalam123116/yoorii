@@ -77,12 +77,12 @@ class SellerRepository implements SellerInterface
 
         if (!blank($request->file('license'))) {
             $requestImage   = $request->file('license');
-            $license_response = $this->saveFile($requestImage, 'pos_file',false);
+            $license_response = $this->saveFile($requestImage, '_file_');
         }
 
         if (!blank($request->file('vat'))) {
             $requestImage   = $request->file('vat');
-            $vat_response = $this->saveFile($requestImage, 'pos_file',false);
+            $vat_response = $this->saveFile($requestImage, '_file_');
         }
         $user = new User();
         $user->first_name       = $request->first_name;
@@ -94,8 +94,8 @@ class SellerRepository implements SellerInterface
         $user->password         = bcrypt($request->password);
         $user->permissions      = [];
         $user->images           = $image_response['images'] ?? [];
-        $user->vat              = $vat_response['image'] ?? [];
-        $user->license           = $license_response['image'] ?? [];
+        $user->vat              = $vat_response ?? '';
+        $user->license           = $license_response ?? '';
         $user->save();
 
         $request['user_id'] = $user->id;

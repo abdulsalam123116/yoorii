@@ -134,6 +134,14 @@ $button_name = isset($user) ? __('Update') : __('Add');
                                                 @endif
                                         </div>
                                     </div>
+                                    @if(isset($user))
+                                        @if ($user->user_type == 'company')
+                                            <a class="btn btn-icon icon-left btn-outline-primary" href="{{ static_asset('public/'.$user->license) }}" target="_blank" ><i class='mdi mdi-eye' aria-hidden="true"></i> {{ __('License Trading') }}</a>
+                                            @if ($user->vat)
+                                                <a class="btn btn-icon icon-left btn-outline-primary" href="{{ static_asset('public/'.$user->vat) }}" target="_blank" ><i class='mdi mdi-eye' aria-hidden="true"></i> {{ __('Vat') }}</a>
+                                            @endif
+                                        @endif
+                                    @endif
                                     <div class="form-group text-right">
                                         <button type="submit" class="btn btn-outline-primary" tabindex="4">
                                             {{ $button_name }}

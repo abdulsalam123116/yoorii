@@ -46,14 +46,15 @@ class SignUpRequest extends FormRequest
             ];
         }
         else{
-            return [
-                'email'         => 'required_without:phone|nullable|unique:users,email|email',
-                'first_name'    => 'required_without:user_type|min:2',
-                'last_name'     => 'required_without:user_type|min:2',
-                'phone'         => 'required_without:email|nullable|unique:users,phone|min:6',
-                'password'      => 'required_without:phone|confirmed|nullable|min:6|max:50',
-                'shop_name'     => 'required_if:user_type,==,seller-migrate|min:2',
-            ];
+                return [
+                    'email'         => 'required_without:phone|nullable|unique:users,email|email',
+                    'first_name'    => 'required_without:user_type|min:2',
+                    'license'       => 'required_if:user_type,==,company',
+                    'last_name'     => 'required_without:user_type|min:2',
+                    'phone'         => 'required_without:email|nullable|unique:users,phone|min:6',
+                    'password'      => 'required_without:phone|confirmed|nullable|min:6|max:50',
+                    'shop_name'     => 'required_if:user_type,==,seller-migrate|min:2',
+                ];
         }
     }
 

@@ -6,6 +6,7 @@ use App\Models\Product;
 use App\Models\Reward;
 use App\Models\RewardDetails;
 use App\Models\SellerProfile;
+use App\Models\User;
 use App\Repositories\Admin\Addon\WalletRepository;
 use App\Repositories\Interfaces\Admin\RewardSystemInterface;
 use Illuminate\Support\Facades\DB;
@@ -44,6 +45,16 @@ class RewardSystemRepository implements RewardSystemInterface{
                 $seller_id       = SellerProfile::find($request->seller_id)->user_id;
                 $seller_products = Product::where('user_id',$seller_id)->get();
                 foreach ($seller_products as $product) {
+                    $product->reward = $request->reward;
+                    $product->save();
+                }
+
+                DB::commit();
+                return true;
+            elseif($request->type == 'user' && $request->user_id != ''):
+                $user_id       = User::find($request->user_id)->id;
+                $user_products = Product::where('user_id',$user_id)->get();
+                foreach ($user_products as $product) {
                     $product->reward = $request->reward;
                     $product->save();
                 }

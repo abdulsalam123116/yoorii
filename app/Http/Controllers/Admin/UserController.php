@@ -51,7 +51,7 @@ class UserController extends Controller
     public function edit(Request $request, $id)
     {
         if ($user = $this->users->get($id)):
-            if ($user->user_type == 'customer'):
+            if (in_array($user->user_type,['company','customer']) ):
                 $r  = $request->r != ''? $request->r : $request->server('HTTP_REFERER');
                 return view('admin.customers.form', compact('user', 'r'));
             else:
@@ -113,7 +113,7 @@ class UserController extends Controller
             ->orWhere('last_name', 'like', '%'.$term.'%')
             ->orWhere('phone', 'like', '%'.$term.'%')
             ->limit(20)
-            ->get();
+            ->get(); 
 
         $formatted_user   = [];
 

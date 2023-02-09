@@ -23,7 +23,7 @@ class UserRepository implements UserInterface
 
     public function all()
     {
-        return User::with('addresses')->where('user_type','customer')->latest();
+        return User::with('addresses')->whereIn('user_type',['company','customer'])->latest();
     }
     public function allTypeUser()
     {
@@ -32,7 +32,7 @@ class UserRepository implements UserInterface
 
     public function paginate($request, $limit)
     {
-        return User::where('user_type','customer')
+        return User::whereIn('user_type',['company','customer'])
             ->when($request->q != null, function ($query) use ($request){
                 $query->where(function ($q) use ($request){
                     $q->where('email', 'LIKE', '%'.$request->q.'%');

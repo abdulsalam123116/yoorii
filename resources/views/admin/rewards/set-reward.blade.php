@@ -162,6 +162,39 @@
                     </div>
                     <div class="card">
                         <div class="card-header input-title">
+                            <h4>{{__('Set Rewards By Customer')}}</h4>
+                        </div>
+                        <div class="card-body card-body-paddding">
+                            <form method="POST" action="{{route('set.reward.by')}}">
+                                @csrf
+                                <div class="form-group">
+                                    <select class="user-by-ajax form-control select2 sorting" name="user_id" id="user_id" required>
+                                        <option value="">{{ __('Select User') }}</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="reward">{{__('Reward')}}</label>
+                                    <input type="number" class="form-control" name="reward" id="reward"
+                                        value="{{old('reward')}}"
+                                        placeholder="{{__('Reward')}}" tabindex="1"
+                                        required>
+                                    <input type="hidden" name="type" value="user">
+                                    @if ($errors->has('reward'))
+                                        <div class="invalid-feedback">
+                                            <p>{{ $errors->first('reward') }}</p>
+                                        </div>
+                                    @endif
+                                </div>
+                                <div class="form-group text-right">
+                                    <button type="submit" class="btn btn-outline-primary" tabindex="4">
+                                        {{ __('Save') }}
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header input-title">
                             <h4>{{__('Set Rewards by Products')}}</h4>
                         </div>
                         <div class="card-body card-body-paddding">
