@@ -45,17 +45,17 @@ class GeneralSettingsController extends Controller
             return redirect()->back();
         endif;
 
-        DB::beginTransaction();
-        try {
+        // DB::beginTransaction();
+        // try {
             $this->settings->update($request);
-            Toastr::success(__('Setting Updated Successfully'));
-            DB::commit();
-            return redirect()->back();
-        } catch (\Exception $e) {
-            DB::rollBack();
-            Toastr::error($e->getMessage());
-            return redirect()->back();
-        }
+        //     Toastr::success(__('Setting Updated Successfully'));
+        //     DB::commit();
+        //     return redirect()->back();
+        // } catch (\Exception $e) {
+        //     DB::rollBack();
+        //     Toastr::error($e->getMessage());
+        //     return redirect()->back();
+        // }
     }
 
     public function optimizationUpdate(OptimizationRequest $request)
