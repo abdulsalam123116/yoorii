@@ -47,7 +47,7 @@ class Product extends Model
     ];
 
     protected $fillable = ['name', 'user_id', 'brand_id', 'category_id', 'created_by', 'slug', 'price', 'purchase_cost',
-        'barcode', 'video_provider', 'video_url', 'current_stock', 'minimum_order_quantity', 'is_approved', 'is_catalog',
+        'barcode', 'video_provider', 'video_url', 'current_stock', 'minimum_order_quantity','maximum_order_quantity', 'is_approved', 'is_catalog',
         'external_link', 'is_refundable', 'cash_on_delivery', 'attribute_sets','images', 'meta_image', 'colors',
         'selected_variants', 'selected_variants_ids', 'contact_info',
     ];
