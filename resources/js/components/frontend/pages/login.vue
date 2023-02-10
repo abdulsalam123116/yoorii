@@ -209,11 +209,11 @@ export default {
             this.otp_field = true;
             this.buttonText = this.lang.sign_in;
           } else {
-            if (this.loginRedirect) {
-              this.$router.push({name: this.loginRedirect});
-            } else {
+            // if (this.loginRedirect) {
+            //   this.$router.push({name: this.loginRedirect});
+            // } else {
               let user = response.data.user;
-              if (user.user_type == 'customer') {
+              if (user.user_type == 'customer' || user.user_type == 'company') {
                 this.$router.push({name: 'dashboard'});
                 /*this.$store.dispatch("activeCurrency", response.data.active_currency);
                 this.$store.dispatch("activeLanguage", response.data.active_language);
@@ -225,13 +225,14 @@ export default {
                 this.loading = true;
                 document.location.href = this.getUrl('seller/dashboard');
               }
-            }
+            // }
 
             this.$store.dispatch('carts', response.data.carts);
             this.$store.dispatch('user', response.data.user);
             this.$store.dispatch('compareList', response.data.compare_list);
             this.$store.dispatch('wishlists', response.data.wishlists);
           }
+          
         }
       }).catch((error) => {
         this.loading = false;

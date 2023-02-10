@@ -80,6 +80,9 @@ return [
         'fast_2_language',
         'fast_2_sender_id',
     ],
+    'is_smscountry_activated' => [
+        'smscountry_auth_key',
+    ],
     'is_spagreen_sms_activated' => [
         'spagreen_sms_api_key',
         'spagreen_secret_key',
@@ -102,6 +105,9 @@ return [
 
     'is_paypal_activated' => [
         'paypal_client_id',
+    ],
+    'is_network_activated' => [
+        'network_token',
     ],
     'is_stripe_activated' => [
         'stripe_key',

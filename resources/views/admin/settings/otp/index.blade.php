@@ -23,6 +23,11 @@
                                        aria-selected="true">{{ __('Setting') }}</a>
                                 </li>
                                 <li class="nav-item">
+                                    <a class="nav-link {{  (old('sms_method') == 'smscountry') ? 'active' : '' }}" id="twilio-tab" data-toggle="tab" href="#smscountry" role="tab"
+                                       aria-controls="home"
+                                       aria-selected="true">{{ __('SMS Country') }}</a>
+                                </li>
+                                <li class="nav-item">
                                     <a class="nav-link {{  (old('sms_method') == 'twilio') ? 'active' : '' }}" id="twilio-tab" data-toggle="tab" href="#twilio" role="tab"
                                        aria-controls="home"
                                        aria-selected="true">{{ __('Twilio') }}</a>
@@ -61,6 +66,7 @@
                 <div class="col-12 col-sm-12 col-md-8 col-lg-9">
                     <div class="tab-content no-padding" id="myTab2Content">
 
+                        
                         <div class="tab-pane fade {{ old('sms_method') == '' ? 'show active' : '' }}" id="setting" role="tabpanel"
                              aria-labelledby="setting-tab">
                             <div class="card">
@@ -80,6 +86,9 @@
                                                 <option value="">{{ __('Select Provider') }}</option>
                                                 @if(settingHelper('is_twilio_sms_activated') == 1)
                                                     <option value="twilio" {{ settingHelper('active_sms_provider') == 'twilio' ? 'selected' : ''}}>{{ __('Twilio') }}</option>
+                                                @endif
+                                                @if(settingHelper('is_smscountry_activated') == 1)
+                                                    <option value="smscountry" {{ settingHelper('active_sms_provider') == 'fast_2' ? 'selected' : ''}}>{{ __('SMS Country') }}</option>
                                                 @endif
                                                 @if(settingHelper('is_fast_2_activated') == 1)
                                                     <option value="fast_2" {{ settingHelper('active_sms_provider') == 'fast_2' ? 'selected' : ''}}>{{ __('Fast 2SMS') }}</option>
@@ -103,14 +112,14 @@
                                                 </div>
                                             @endif
                                         </div>
-{{--                                        <div class="form-group">--}}
-{{--                                            <label for="phone_default_country">{{ __('Default Country') }}</label>--}}
-{{--                                            <select name="phone_default_country" class="form-control selectric" id="phone_default_country">--}}
-{{--                                                @foreach(get_yrsetting('locale') as $locale)--}}
-{{--                                                    <option value="{{ strtoupper($locale) }}" {{ old('phone_default_country') == strtoupper($locale) ? 'selected' : (settingHelper('phone_default_country') == strtoupper($locale) ? 'selected' : '') }}>{{ strtoupper($locale) }}</option>--}}
-{{--                                                @endforeach--}}
-{{--                                            </select>--}}
-{{--                                        </div>--}}
+                                            {{--                                        <div class="form-group">--}}
+                                            {{--                                            <label for="phone_default_country">{{ __('Default Country') }}</label>--}}
+                                            {{--                                            <select name="phone_default_country" class="form-control selectric" id="phone_default_country">--}}
+                                            {{--                                                @foreach(get_yrsetting('locale') as $locale)--}}
+                                            {{--                                                    <option value="{{ strtoupper($locale) }}" {{ old('phone_default_country') == strtoupper($locale) ? 'selected' : (settingHelper('phone_default_country') == strtoupper($locale) ? 'selected' : '') }}>{{ strtoupper($locale) }}</option>--}}
+                                            {{--                                                @endforeach--}}
+                                            {{--                                            </select>--}}
+                                            {{--                                        </div>--}}
                                         @if(hasPermission('otp_setting_update'))
                                         <div class="form-group text-right">
                                             <button class="btn btn-icon icon-left btn-outline-primary">{{ __('Save') }}</button>
@@ -122,6 +131,69 @@
                                 </div>
                             </div>
                         </div>
+
+                        <div class="tab-pane fade {{ old('sms_method') == 'smscountry' ? 'show active' : '' }}" id="smscountry" role="tabpane1" aria-labelledby="smscountry-tab">
+                       <div class="card">
+                           <div class="card-header extra-padding">
+                               <h4>{{ __('Fast 2SMS Credential') }}</h4>
+                           </div>
+                           <div class="form-group">
+                               @if(settingHelper('is_smscountry_activated') == 1)
+                                   <a href="{{route('test.number','smscountry')}}" class="btn btn-outline-primary currency-add-btn cache-btn " type="button">{{__('Test Number')}}</a>
+                               @endif
+                           </div>
+                           <div class="col-md-10 middle card-body card-body-paddding">
+                               <div class="form-group">
+                                   <label class="custom-switch mt-2 {{ hasPermission('otp_setting_update') ? '' : 'cursor-not-allowed' }}">
+                                       <input type="checkbox" name="custom-switch-checkbox" value="sms-status-change/{{ 'is_smscountry_activated' }}"
+                                               {{ hasPermission('otp_setting_update') ? '' : 'disabled' }}
+                                              class="{{ hasPermission('otp_setting_update') ? 'status-change' : '' }} custom-switch-input " {{ settingHelper('is_smscountry_activated') == 1 ? 'checked' : ''}} />
+                                       <span class="custom-switch-indicator"></span>
+                                       <span class="custom-switch-description">{{ __('Activate') }}</span>
+                                   </label>
+                                   @foreach(get_yrsetting('is_smscountry_activated') as $title)
+                                       @if(!settingHelper( $title))
+                                           <label class="col-md-9 col-from-label activator-notice">
+                                               <div class="invalid-feedback text-danger">
+                                                   {{ __("N.B: You can active this service when you will configure SMSCountry credentials .") }}
+                                               </div>
+                                           </label>
+                                           @break
+                                       @endif
+                                   @endforeach
+                               </div>
+                               @if(hasPermission('otp_setting_update'))
+                                <form action="{{ route('admin.setting.otp.update') }}" method="post"
+                                   enctype="multipart/form-data">
+                                   @method('put')
+                                   @csrf
+                               @endif
+                                   <div class="form-group">
+                                       <label for="smscountry_auth_key">{{ __('Auth Key') }} *</label>
+                                       <input type="hidden" name="sms_method" value="smscountry">
+                                       <input type="text" name="smscountry_auth_key" id="smscountry_auth_key"
+                                              value="{{ old('smscountry_auth_key') ? old('smscountry_auth_key') : settingHelper('smscountry_auth_key') }}"
+                                              placeholder="AVcDEljksadj"
+                                              class="form-control">
+                                       @if ($errors->has('smscountry_auth_key'))
+                                           <div class="invalid-feedback">
+                                               {{ $errors->first('smscountry_auth_key') }}
+                                           </div>
+                                       @endif
+                                   </div>
+                               
+                                   @if(hasPermission('otp_setting_update'))
+                                   <div class="form-group text-right">
+                                       <button class="btn btn-icon icon-left btn-outline-primary">{{ __('Save') }}</button>
+                                   </div>
+                                   @endif
+                               @if(hasPermission('otp_setting_update'))
+                                 </form>
+                               @endif
+                           </div>
+                       </div>
+                   </div>
+
                         <div class="tab-pane fade {{ old('sms_method') == 'fast_2' ? 'show active' : '' }}"
                              id="fast-2sms" role="tabpane1"
                              aria-labelledby="fast-sms-tab">

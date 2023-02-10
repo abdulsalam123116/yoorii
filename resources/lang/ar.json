@@ -2135,6 +2135,7 @@
     "wallet_recharge": "شحن المحفظة",
     "enter_amount": "أدخل المبلغ",
     "pay_with_payPal": "الدفع باستخدام PayPal",
+    "pay_with_network": "الدفع باستخدام البطاقة",
     "pay_with_stripe": " الدفع بشريط Stripe",
     "pay_with_SSLCOM": "الدفع باستخدام SSLCOMMERZE",
     "pay_with_paytm": "الدفع باستخدام Paytm" ,

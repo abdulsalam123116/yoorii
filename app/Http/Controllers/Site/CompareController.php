@@ -55,6 +55,7 @@ class CompareController extends Controller
                 'slug' => $product->slug,
                 'has_variant' => $product->has_variant,
                 'minimum_order_quantity' => $product->minimum_order_quantity,
+                'maximum_order_quantity' => $product->maximum_order_quantity,
                 'product_name' => $product->getTranslation('name',languageCheck()),
                 'image_190x230' => $product->image_190x230,
                 'special_discount_check' => $product->special_discount_check,

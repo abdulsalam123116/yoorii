@@ -1786,6 +1786,7 @@
     "wallet_recharge": "Wallet Recharge",
     "enter_amount": "Enter Amount",
     "pay_with_payPal": "Pay with PayPal",
+    "pay_with_network": "Pay with Debit/Credit Card",
     "pay_with_stripe": "Pay with stripe",
     "pay_with_SSLCOM": "Pay with SSLCOMMERZE",
     "pay_with_paytm": "Pay with Paytm",

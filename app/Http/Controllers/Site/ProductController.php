@@ -218,6 +218,7 @@ class ProductController extends Controller
                 'attribute_values'  => [],
                 'id'                => $product->id,
                 'quantity'          => $product->minimum_order_quantity ? (int)$product->minimum_order_quantity : 1,
+                'max_quantity'          => $product->maximum_order_quantity ? (int)$product->maximum_order_quantity : 1,
             ];
 
             $data                   = [

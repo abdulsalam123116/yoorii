@@ -24,6 +24,18 @@
               </div>
               <div class="card-list">
                 <ul class="global-list grid-3">
+                  <li v-if="settings.is_network_activated == 1 && settings.network_token">
+                    <div class="input-checkbox">
+                      <input type="radio" value="network" @change="razorPayRemove"
+                             v-model="payment_form.payment_type"
+                             id="network" name="radio">
+                      <label for="network">
+                        <img :src="getUrl('public/images/payment-method/network.svg')" alt="network"
+                             class="img-fluid">
+                        {{ lang.pay_with_network }}
+                      </label>
+                    </div>
+                  </li>
                   <li v-if="settings.is_paypal_activated == 1 && settings.paypal_key">
                     <div class="input-checkbox">
                       <input type="radio" value="paypal" @change="razorPayRemove"

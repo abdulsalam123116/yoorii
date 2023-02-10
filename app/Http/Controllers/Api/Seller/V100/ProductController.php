@@ -378,6 +378,7 @@ class ProductController extends Controller
                 'total_reviews'             => count($reviews),
                 'current_stock'             => (int)$product->current_stock,
                 'minimum_order_quantity'    => (int)$product->minimum_order_quantity,
+                'maximum_order_quantity'    => (int)$product->maximum_order_quantity,
                 'reward'                    => (double)$product->reward,
                 'total_images'              => count($images),
                 'images'                    => $images,
@@ -416,6 +417,7 @@ class ProductController extends Controller
                 'form'                      => [
                     'product_id'        => $product->id,
                     'quantity'          => $product->minimum_order_quantity ? (int)$product->minimum_order_quantity : 1,
+                    'max_quantity'          => $product->maximum_order_quantity ? (int)$product->maximum_order_quantity : 0,
                 ],
                 'links' => [
                     'facebook' => 'https://www.facebook.com/sharer/sharer.php?u='.url('product/'.$product->slug),

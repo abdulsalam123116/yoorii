@@ -60,6 +60,7 @@ class CartController extends Controller
                         'variant'                   => nullCheck($cart->variant),
                         'quantity'                  => (int)$cart->quantity,
                         'minimum_order_quantity'    => (int)$product->minimum_order_quantity,
+                        'maximum_order_quantity'    => (int)$product->maximum_order_quantity,
                         'stock'                     => (int)$product->current_stock,
                         'price'                     => (string)round($cart->price,3),
                         'formatted_price'           => (string)$cart->price,
@@ -143,7 +144,11 @@ class CartController extends Controller
                     'error' => __('Please order minimum of :quantity quantity', ['quantity' => $product->minimum_order_quantity])
                 ]);
             endif;
-
+            if (!$product->is_digital && $product->maximum_order_quantity > 0 && ($product->maximum_order_quantity < $request->quantity)):
+                return response()->json([
+                    'error' => __('Please order less than of :quantity quantity', ['quantity' => $product->maximum_order_quantity])
+                ]);
+            endif;
             if ($user)
             {
                 if (!$request->trx_id) {

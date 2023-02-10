@@ -112,12 +112,72 @@
                                        id="kkiapay-tab" data-toggle="tab" href="#kkiapay" role="tab"
                                        aria-controls="kkiapay" aria-selected="false">{{ __('kkiapay') }}</a>
                                 </li>
+                                <li class="nav-item">
+                                    <a class="nav-link {{ old('payment_method')  == 'network' ? 'active' : ''}}"
+                                       id="network-tab" data-toggle="tab" href="#network" role="tab"
+                                       aria-controls="network" aria-selected="false">{{ __('Network') }}</a>
+                                </li>
                             </ul>
                         </div>
                     </div>
                 </div>
                 <div class="col-12 col-sm-12 col-md-8 col-lg-9">
                     <div class="tab-content no-padding" id="myTab2Content">
+                        <div class="tab-pane fade {{ old('payment_method') == '' || old('payment_method') == 'network' ? 'show active' : ''}}"
+                            id="network" role="tabpane1" aria-labelledby="network-tab">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h4>{{ __('Network Setting') }}</h4>
+                                </div>
+                                <div class="card-body col-md-10 middle">
+                                    <div class="col-12">
+                                        <div class="row">
+                                            <div class="col-6 pl-0">
+                                                <div class="form-group">
+                                                    <label
+                                                        class="custom-switch mt-2 {{ hasPermission('payment_gateway_update') ? '' : 'cursor-not-allowed' }}">
+                                                        <input type="checkbox"
+                                                               name="custom-switch-checkbox"
+                                                               value="admin-payment-status-change/{{ 'is_network_activated' }}"
+                                                               {{ hasPermission('payment_gateway_update') ? '' : 'disabled' }}
+                                                               class="{{ hasPermission('payment_gateway_update') ? 'status-change' : '' }} custom-switch-input " {{ settingHelper('is_network_activated') == 1 ? 'checked' : ''}} />
+                                                        <span class="custom-switch-indicator"></span>
+                                                        <span
+                                                            class="custom-switch-description">{{ __('Activate') }}</span>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    @if(hasPermission('payment_gateway_update'))
+                                        <form action="{{ route('payment.gateway.update') }}" method="post" enctype="multipart/form-data">
+                                        @method('put')
+                                        @csrf
+                                    @endif
+                                    <div class="form-group">
+                                        <label for="network_token">{{ __('Token') }}</label>
+                                        <input type="hidden" name="payment_method" value="network">
+                                        <input type="text" class="form-control" name="network_token"
+                                                id="network_token"
+                                                value="{{ old('network_token') ? old('network_token') : settingHelper('network_token') }}"
+                                                placeholder="{{ __('Network Token') }}">
+                                        @if ($errors->has('network_token'))
+                                            <div class="invalid-feedback">
+                                                {{ $errors->first('network_token') }}
+                                            </div>
+                                        @endif
+                                    </div>
+                                    @if(hasPermission('payment_gateway_update'))
+                                        <div class="text-md-right">
+                                            <button class="btn btn-outline-primary">{{ __('Save') }}</button>
+                                        </div>
+                                    @endif
+                                    @if(hasPermission('payment_gateway_update'))
+                                        </form>
+                                    @endif
+                                </div>
+                            </div>
+                        </div>
                         <div class="tab-pane fade {{ old('payment_method') == '' || old('payment_method') == 'paypal' ? 'show active' : ''}}"
                             id="paypal" role="tabpane1" aria-labelledby="paypal-tab">
                             <div class="card">

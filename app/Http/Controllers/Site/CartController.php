@@ -63,7 +63,11 @@ class CartController extends Controller
                     'error' => __('Please order minimum of :quantity products', ['quantity' => $product->minimum_order_quantity])
                 ]);
             endif;
-
+            if (!$product->is_digital && $product->maximum_order_quantity > 0 && ($product->maximum_order_quantity < $request->quantity)):
+                return response()->json([
+                    'error' => __('Please order less than of :quantity quantity', ['quantity' => $product->maximum_order_quantity])
+                ]);
+            endif;
             $response = $this->cart->addToCart($request, $product,authUser());
 
             DB::commit();

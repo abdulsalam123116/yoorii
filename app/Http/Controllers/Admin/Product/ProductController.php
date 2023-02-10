@@ -285,6 +285,7 @@ class ProductController extends Controller
                 'variant_sku.*' => 'required_if:has_variant,1|distinct|unique:product_stocks,sku',
                 'video_url' => 'required_with:video_provider',
                 'minimum_order_quantity' => 'numeric|min:1',
+                'maximum_order_quantity' => 'numeric|min:0',
                 'low_stock_to_notify' => 'numeric|min:0',
                 'shipping_fee' => 'required_if:shipping_type,flat_rate',
                 'special_discount_period' => 'required_with:special_discount_type',

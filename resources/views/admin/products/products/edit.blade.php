@@ -245,6 +245,22 @@
                                                     @endif
                                                 </div>
                                             </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="maximum_order_quantity">{{ __('Max. Order Quantity') }}
+                                                        *</label>
+                                                    <input type="number" name="maximum_order_quantity"
+                                                           id="maximum_order_quantity" class="form-control"
+                                                           value="{{ old('maximum_order_quantity') ? old('maximum_order_quantity') : $product_language->product->minimum_order_quantity}}"
+                                                           placeholder="{{ __('Enter maximum order quantity') }}"
+                                                           min="0">
+                                                    @if ($errors->has('maximum_order_quantity'))
+                                                        <div class="invalid-feedback">
+                                                            <p>{{ $errors->first('maximum_order_quantity') }}</p>
+                                                        </div>
+                                                    @endif
+                                                </div>
+                                            </div>
                                         </div>
                                         <div class="form-group">
                                             <label for="barcode">{{ __('Barcode') }}</label>
