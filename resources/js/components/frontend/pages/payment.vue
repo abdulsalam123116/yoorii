@@ -24,7 +24,7 @@
               </div>
               <div class="card-list">
                 <ul class="global-list grid-3">
-                  <li v-if="settings.is_network_activated == 1 && settings.network_token && authUser.accept_visa == 1">
+                  <li v-if="settings.is_network_activated == 1 && settings.network_token && authUser && authUser.accept_visa == 1">
                     <div class="input-checkbox">
                       <input type="radio" value="network" @change="razorPayRemove"
                              v-model="payment_form.payment_type"
