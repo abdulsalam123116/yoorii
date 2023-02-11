@@ -251,7 +251,7 @@
                                                         *</label>
                                                     <input type="number" name="maximum_order_quantity"
                                                            id="maximum_order_quantity" class="form-control"
-                                                           value="{{ old('maximum_order_quantity') ? old('maximum_order_quantity') : $product_language->product->minimum_order_quantity}}"
+                                                           value="{{ old('maximum_order_quantity') ? old('maximum_order_quantity') : $product_language->product->maximum_order_quantity}}"
                                                            placeholder="{{ __('Enter maximum order quantity') }}"
                                                            min="0">
                                                     @if ($errors->has('maximum_order_quantity'))

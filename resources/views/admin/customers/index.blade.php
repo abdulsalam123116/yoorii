@@ -61,6 +61,7 @@
                                         <th>{{ __('Last Login') }}</th>
                                         <th>{{ __('Type') }}</th>
                                         <th>{{ __('Status') }}</th>
+                                        <th>{{ __('Accept Payment') }}</th>
                                         @if (hasPermission('customer_update') || hasPermission('customer_delete'))
                                             <th>{{ __('Options') }}</th>
                                         @endif
@@ -117,7 +118,23 @@
                                                     </label>
                                                 @endif
                                             </td>
+                                            <td>
+                                                <label class="custom-switch mt-2 {{ hasPermission('customer_update') ? '' : 'cursor-not-allowed' }}">
+                                                    <span>{{ __('COD') }}</span>
+                                                    <input type="checkbox" name="custom-switch-checkbox"
+                                                           value="customer-accept-payment-cod-change/{{$user->id}}"
+                                                           {{ $user->accept_cod == 1 ? 'checked' : '' }}  {{ hasPermission('customer_update') ? '' : 'disabled'}} class="{{ hasPermission('customer_update') ? 'status-change' : '' }} custom-switch-input">
+                                                    <span class="custom-switch-indicator"></span>
+                                                </label>
+                                                <label class="custom-switch mt-2 {{ hasPermission('customer_update') ? '' : 'cursor-not-allowed' }}">
+                                                    <span>{{ __('Visa') }}</span>
+                                                    <input type="checkbox" name="custom-switch-checkbox"
+                                                           value="customer-accept-payment-visa-change/{{$user->id}}"
+                                                           {{ $user->accept_visa == 1 ? 'checked' : '' }}  {{ hasPermission('customer_update') ? '' : 'disabled'}} class="{{ hasPermission('customer_update') ? 'status-change' : '' }} custom-switch-input">
+                                                    <span class="custom-switch-indicator"></span>
+                                                </label>
 
+                                            </td>
                                             <td>
                                                 @if (hasPermission('customer_update'))
                                                     <a href="{{ route('customer.edit', $user->id) }}"

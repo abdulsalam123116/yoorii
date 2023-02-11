@@ -21,8 +21,47 @@ trait SmsSenderTrait
     {
 
         $provider = $provider != '' ? $provider : settingHelper('active_sms_provider');
+        if ($provider == 'smscountry'):
+            $sid        = settingHelper("twilio_sms_sid");
+            $token      = settingHelper("twilio_sms_auth_token");
+            $client     = new Client($sid, $token);
 
-        if ($provider == 'twilio'):
+            try {
+                $message = $client->messages->create(
+                    $phone_number,
+                    array(
+                        'from' => settingHelper('valid_twilio_sms_number'),
+                        'body' => $sms_body
+                    )
+                );
+                $ch = curl_init();
+                curl_setopt($ch, CURLOPT_URL, "https://private-anon-09112bc68b-smscountryapi.apiary-mock.com/v0.1/Accounts/authKey/SMSes/");
+                curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+                curl_setopt($ch, CURLOPT_HEADER, FALSE);
+                curl_setopt($ch, CURLOPT_POST, TRUE);
+
+                curl_setopt($ch, CURLOPT_POSTFIELDS, "{
+                    \"Text\": \"$sms_body\",
+                    \"Number\": \"$phone_number\",
+                    \"SenderId\": \"SMSCountry\",
+                    \"DRNotifyUrl\": \"".config('app.url')."/notifyurl\",
+                    \"DRNotifyHttpMethod\": \"POST\",
+                    \"Tool\": \"API\"
+                }");
+
+                curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+                    "Content-Type: application/json"
+                ));
+
+                $response = curl_exec($ch);
+                curl_close($ch);
+
+                // var_dump($response);
+                return true;
+            } catch (\Exception $e) {
+                return false;
+            }
+        elseif ($provider == 'twilio'):
             $sid        = settingHelper("twilio_sms_sid");
             $token      = settingHelper("twilio_sms_auth_token");
             $client     = new Client($sid, $token);

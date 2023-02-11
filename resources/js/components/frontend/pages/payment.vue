@@ -24,7 +24,7 @@
               </div>
               <div class="card-list">
                 <ul class="global-list grid-3">
-                  <li v-if="settings.is_network_activated == 1 && settings.network_token">
+                  <li v-if="settings.is_network_activated == 1 && settings.network_token && authUser.accept_visa == 1">
                     <div class="input-checkbox">
                       <input type="radio" value="network" @change="razorPayRemove"
                              v-model="payment_form.payment_type"
@@ -244,7 +244,7 @@
                     </div>
                   </li>
 
-                  <li v-if="!code && settings.pay_later_system == 1 && authUser">
+                  <li v-if="!code && settings.pay_later_system == 1 && authUser && authUser.accept_cod == 1">
                     <div class="input-checkbox">
                       <input type="radio" id="pay_later" @change="razorPayRemove"
                              value="pay_later"
@@ -257,7 +257,7 @@
                       </label>
                     </div>
                   </li>
-                  <li v-if="payment_form.total > 0 && !code && !check_cod">
+                  <li v-if="payment_form.total > 0 && !code && !check_cod && authUser.accept_cod == 1">
                     <div class="input-checkbox">
                       <input type="radio" id="cash" @change="razorPayRemove"
                              value="cash_on_delivery"

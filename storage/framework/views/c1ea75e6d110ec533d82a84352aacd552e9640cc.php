@@ -256,7 +256,7 @@
                                                         *</label>
                                                     <input type="number" name="maximum_order_quantity"
                                                            id="maximum_order_quantity" class="form-control"
-                                                           value="<?php echo e(old('maximum_order_quantity') ? old('maximum_order_quantity') : $product_language->product->minimum_order_quantity); ?>"
+                                                           value="<?php echo e(old('maximum_order_quantity') ? old('maximum_order_quantity') : $product_language->product->maximum_order_quantity); ?>"
                                                            placeholder="<?php echo e(__('Enter maximum order quantity')); ?>"
                                                            min="0">
                                                     <?php if($errors->has('maximum_order_quantity')): ?>

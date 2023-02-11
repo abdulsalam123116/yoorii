@@ -71,18 +71,23 @@ class RegisterController extends Controller
             }
             
             if (!$request->phone) {
-                if($request->user_type == 'company'){
+                if($request->user_type == 'customer'){
+                    $data['status'] = 1;
+                }else{
+                    $data['status'] = 0;
+                    $data['accept_cod'] = 1;
+                }
                     $sellerData = Sentinel::register($data);
                     $activation = Activation::create($sellerData);
-                } else {
-                    $sellerData = Sentinel::registerAndActivate($data);
-                }
+                // } else {
+                //     $sellerData = Sentinel::registerAndActivate($data);
+                // }
             }
             if ($request->email) {
 //                    $this->sendMail($sellerData, $activation->code, 'verify_email');
-                if($request->user_type == 'company'){
+                // if($request->user_type == 'company'){
                     $this->sendmail($request->email, 'Registration', $sellerData, 'email.auth.activate-account-email',url('/') . '/activation/' . $request->email . '/' . $activation->code);
-                } 
+                // } 
                 if($sellerData){
                     $user_id = $sellerData->id;
                     $sellerData['id'] = 1;

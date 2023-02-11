@@ -79,6 +79,55 @@ class CommonController extends Controller
         }
 
     }
+
+    public function acceptPaymentVisaChange(Request $request)
+    {
+        if (isDemoServer()):
+            $response['message']    = __('This function is disabled in demo server.');
+            $response['title']      = __('Ops..!');
+            $response['status']     = 'error';
+            return response()->json($response);
+        endif;
+        DB::beginTransaction();
+        try {
+            $this->common->acceptVisaChange($request['data']);
+            $response['message'] = __('Updated Successfully');
+            $response['title']   = __('Success');
+            $response['status']   = 'success';
+            DB::commit();
+            return response()->json($response);
+        } catch (\Exception $e) {
+            DB::rollBack();
+            Toastr::error($e->getMessage());
+            return redirect()->back();
+        }
+
+    }
+
+    public function acceptPaymentCodChange(Request $request)
+    {
+        if (isDemoServer()):
+            $response['message']    = __('This function is disabled in demo server.');
+            $response['title']      = __('Ops..!');
+            $response['status']     = 'error';
+            return response()->json($response);
+        endif;
+        DB::beginTransaction();
+        try {
+            $this->common->acceptCODChange($request['data']);
+            $response['message'] = __('Updated Successfully');
+            $response['title']   = __('Success');
+            $response['status']   = 'success';
+            DB::commit();
+            return response()->json($response);
+        } catch (\Exception $e) {
+            DB::rollBack();
+            Toastr::error($e->getMessage());
+            return redirect()->back();
+        }
+
+    }
+
     public function editInfo($page_name, $param1 = null)
     {
         $otherLinks = null;

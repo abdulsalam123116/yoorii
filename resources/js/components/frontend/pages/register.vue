@@ -120,7 +120,7 @@
                 </div>
               </div>
               <button type="button" class="btn" @click="loginOptionsType(optionToType)">
-                {{ 'Switch to '+ (optionToType == 'customer' ? 'Company Account' : 'Regular Account') }}
+                {{ 'Switch to '+ (optionToType == 'customer' ? 'Company Account' : 'Individual Account') }}
               </button>
               <button type="submit" class="btn" v-if="optionTo == 'phone' && !loading">
                 {{ lang.sign_up }}

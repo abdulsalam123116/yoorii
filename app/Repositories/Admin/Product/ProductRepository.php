@@ -269,6 +269,7 @@ class ProductRepository implements ProductInterface
         endif;
         $product->status = $request->status;
         $product->minimum_order_quantity    = $request->minimum_order_quantity != '' ? $request->minimum_order_quantity : 1;
+        $product->maximum_order_quantity    = $request->maximum_order_quantity != '' ? $request->maximum_order_quantity : 0;
         $product->barcode                   = $request->barcode != '' ? $request->barcode : $this->generate_random_string(16, 'upper');
 
         if ($request->video_provider != '' && $request->video_url != ''):
@@ -513,6 +514,7 @@ class ProductRepository implements ProductInterface
 //            $product->created_by                = Sentinel::getUser()->id;
 
             $product->minimum_order_quantity = $request->minimum_order_quantity != '' ? $request->minimum_order_quantity : 1;
+            $product->maximum_order_quantity = $request->maximum_order_quantity != '' ? $request->maximum_order_quantity : 0;
             $product->barcode = $request->barcode != '' ? $request->barcode : $this->generate_random_string(16, 'upper');
 
             if ($request->video_provider != '' && $request->video_url != ''):

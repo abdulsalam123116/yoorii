@@ -192,6 +192,25 @@ class CommonRepository implements CommonInterface{
             return true;
     }
 
+    public function acceptCODChange($request)
+    {
+            $user           = $this->user->get($request['id']);
+            $user->accept_cod   = $request['status'];
+            $user->save();
+
+            DB::commit();
+            return true;
+    }
+
+    public function acceptVisaChange($request)
+    {
+            $user           = $this->user->get($request['id']);
+            $user->accept_visa   = $request['status'];
+            $user->save();
+
+            DB::commit();
+            return true;
+    }
     public function sellerProductDelete($request)
     {
         $id = $request->id;

@@ -170,6 +170,8 @@ Route::middleware(['XSS','isInstalled'])->group(function () {
                 Route::get('user-ban/{id}', [UserController::class, 'ban'])->name('user.ban')->middleware('PermissionCheck:seller_ban|customer_ban|staff_ban');
                 Route::put('update-customer', [UserController::class, 'update'])->name('customer.update')->middleware('PermissionCheck:customer_update');
                 Route::put('customer-status-change', [CommonController::class, 'statusChange'])->name('admin.customer.status.change')->middleware('PermissionCheck:customer_update');
+                Route::put('customer-accept-payment-visa-change', [CommonController::class, 'acceptPaymentVisaChange'])->name('admin.customer.accept.payment.visa.change')->middleware('PermissionCheck:customer_update');
+                Route::put('customer-accept-payment-cod-change', [CommonController::class, 'acceptPaymentCodChange'])->name('admin.customer.accept.payment.cod.change')->middleware('PermissionCheck:customer_update');
                 Route::delete('delete/customer/{id}', [CommonController::class, 'delete'])->middleware('PermissionCheck:customer_delete');
                 Route::get('user-by-ajax', [UserController::class, 'getUserByAjax'])->name('user.by.ajax');
                 Route::get('all-user-by-ajax', [UserController::class, 'getAllTypeByAjax'])->name('all.user.by.ajax');
