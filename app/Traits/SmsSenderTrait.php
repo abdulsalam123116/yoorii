@@ -11,6 +11,7 @@ trait SmsSenderTrait
         $phone_number   = '+' .$request['ccode'] . $request['test_number'];
         $provider       = $request->type;
         $sms_body       = 'This is a text message from '.$provider.' for checking configuration';
+        return $this->send($phone_number, $sms_body, $request->template_id, $provider, true);
         if ($this->send($phone_number, $sms_body, $request->template_id, $provider, true)):
             return true;
         else:
@@ -46,6 +47,7 @@ trait SmsSenderTrait
                 ));
 
                 $response = curl_exec($ch);
+                return $response;
                 curl_close($ch);
 
                 // var_dump($response);

@@ -133,7 +133,7 @@ class OtpController extends Controller
             $response['status']     = 'error';
             return response()->json($response);
         endif;
-
+        return response()->json($this->test($request));
         if ($this->test($request)):
             $response['message']    = __('Text sms sent successfully');
             $response['title']      = __('Success');
