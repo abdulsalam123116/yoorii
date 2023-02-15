@@ -22,20 +22,10 @@ trait SmsSenderTrait
 
         $provider = $provider != '' ? $provider : settingHelper('active_sms_provider');
         if ($provider == 'smscountry'):
-            $sid        = settingHelper("twilio_sms_sid");
-            $token      = settingHelper("twilio_sms_auth_token");
-            $client     = new Client($sid, $token);
-
+            $token      = settingHelper("smscountry_auth_key");
             try {
-                $message = $client->messages->create(
-                    $phone_number,
-                    array(
-                        'from' => settingHelper('valid_twilio_sms_number'),
-                        'body' => $sms_body
-                    )
-                );
                 $ch = curl_init();
-                curl_setopt($ch, CURLOPT_URL, "https://private-anon-09112bc68b-smscountryapi.apiary-mock.com/v0.1/Accounts/authKey/SMSes/");
+                curl_setopt($ch, CURLOPT_URL, "https://private-anon-09112bc68b-smscountryapi.apiary-mock.com/v0.1/Accounts/".$token."/SMSes/");
                 curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
                 curl_setopt($ch, CURLOPT_HEADER, FALSE);
                 curl_setopt($ch, CURLOPT_POST, TRUE);
@@ -43,7 +33,7 @@ trait SmsSenderTrait
                 curl_setopt($ch, CURLOPT_POSTFIELDS, "{
                     \"Text\": \"$sms_body\",
                     \"Number\": \"$phone_number\",
-                    \"SenderId\": \"SMSCountry\",
+                    \"SenderId\": \"SMSCOUNTRY\",
                     \"DRNotifyUrl\": \"".config('app.url')."/notifyurl\",
                     \"DRNotifyHttpMethod\": \"POST\",
                     \"Tool\": \"API\"
