@@ -23,9 +23,10 @@ trait SmsSenderTrait
         $provider = $provider != '' ? $provider : settingHelper('active_sms_provider');
         if ($provider == 'smscountry'):
             $token      = settingHelper("smscountry_auth_key");
+            $key = base64_encode($token);
             try {
                 $ch = curl_init();
-                curl_setopt($ch, CURLOPT_URL, "https://private-anon-09112bc68b-smscountryapi.apiary-mock.com/v0.1/Accounts/".$token."/SMSes/");
+                curl_setopt($ch, CURLOPT_URL, "https://private-anon-09112bc68b-smscountryapi.apiary-mock.com/v0.1/Accounts/authKey/SMSes/");
                 curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
                 curl_setopt($ch, CURLOPT_HEADER, FALSE);
                 curl_setopt($ch, CURLOPT_POST, TRUE);
@@ -40,7 +41,8 @@ trait SmsSenderTrait
                 }");
 
                 curl_setopt($ch, CURLOPT_HTTPHEADER, array(
-                    "Content-Type: application/json"
+                    "Content-Type: application/json",
+                    "Authorization : Basic $key"
                 ));
 
                 $response = curl_exec($ch);
