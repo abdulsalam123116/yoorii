@@ -187,7 +187,7 @@ if (!function_exists('is_file_exists')) {
     {
         if (!blank($item) and !blank($storage)) :
             if ($storage == 'local') :
-                if (file_exists('public/' . $item)) :
+                if (file_exists( $item)) :
                     return true;
                 endif;
             elseif ($storage == 'aws_s3') :
@@ -212,9 +212,9 @@ if (!function_exists('get_media')) {
         if (!blank($item) and !blank($storage)) :
             if ($storage == 'local') :
                 if($updater):
-                    return base_path('public/'.$item);
+                    return base_path($item);
                 else:
-                    return app('url')->asset('public/' . $item);
+                    return app('url')->asset($item);
                 endif;
             elseif ($storage == 'aws_s3') :
                 return Storage::disk('s3')->url($item);
@@ -247,7 +247,7 @@ if (!function_exists('static_asset')) {
         if (strpos(php_sapi_name(), 'cli') !== false || defined('LARAVEL_START_FROM_PUBLIC')) :
             return app('url')->asset($path, $secure);
         else:
-            return app('url')->asset('public/' . $path, $secure);
+            return app('url')->asset($path, $secure);
         endif;
     }
 }

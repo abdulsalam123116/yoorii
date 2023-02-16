@@ -34,35 +34,35 @@ trait ImageTrait
 
             if ($for == 'favicon'):
                 $originalImage      = date('YmdHis') . "-" . $for . rand(1, 500) . '.' . $extension;
-                $image_16x16        = date('YmdHis') . "-" . $for . '-16x16-' . rand(1, 500) . '.jpg';
-                $image_32x32        = date('YmdHis') . "-" . $for . '-32x32-' . rand(1, 500) . '.jpg';
-                $image_57x57        = date('YmdHis') . "-" . $for . '-57x57-' . rand(1, 500) . '.jpg';
-                $image_60x60        = date('YmdHis') . "-" . $for . '-60x60-' . rand(1, 500) . '.jpg';
-                $image_72x72        = date('YmdHis') . "-" . $for . '-72x72-' . rand(1, 500) . '.jpg';
-                $image_76x76        = date('YmdHis') . "-" . $for . '-76x76-' . rand(1, 500) . '.jpg';
-                $image_96x96        = date('YmdHis') . "-" . $for . '-96x96-' . rand(1, 500) . '.jpg';
-                $image_114x114      = date('YmdHis') . "-" . $for . '-114x114-' . rand(1, 500) . '.jpg';
-                $image_120x120      = date('YmdHis') . "-" . $for . '-120x120-' . rand(1, 500) . '.jpg';
-                $image_144x144      = date('YmdHis') . "-" . $for . '-144x144-' . rand(1, 500) . '.jpg';
-                $image_152x152      = date('YmdHis') . "-" . $for . '-152x152-' . rand(1, 500) . '.jpg';
-                $image_180x180      = date('YmdHis') . "-" . $for . '-180x180-' . rand(1, 500) . '.jpg';
-                $image_192x192      = date('YmdHis') . "-" . $for . '-192x192-' . rand(1, 500) . '.jpg';
+                $image_16x16        = date('YmdHis') . "-" . $for . '-16x16-' . rand(1, 500) . '.png';
+                $image_32x32        = date('YmdHis') . "-" . $for . '-32x32-' . rand(1, 500) . '.png';
+                $image_57x57        = date('YmdHis') . "-" . $for . '-57x57-' . rand(1, 500) . '.png';
+                $image_60x60        = date('YmdHis') . "-" . $for . '-60x60-' . rand(1, 500) . '.png';
+                $image_72x72        = date('YmdHis') . "-" . $for . '-72x72-' . rand(1, 500) . '.png';
+                $image_76x76        = date('YmdHis') . "-" . $for . '-76x76-' . rand(1, 500) . '.png';
+                $image_96x96        = date('YmdHis') . "-" . $for . '-96x96-' . rand(1, 500) . '.png';
+                $image_114x114      = date('YmdHis') . "-" . $for . '-114x114-' . rand(1, 500) . '.png';
+                $image_120x120      = date('YmdHis') . "-" . $for . '-120x120-' . rand(1, 500) . '.png';
+                $image_144x144      = date('YmdHis') . "-" . $for . '-144x144-' . rand(1, 500) . '.png';
+                $image_152x152      = date('YmdHis') . "-" . $for . '-152x152-' . rand(1, 500) . '.png';
+                $image_180x180      = date('YmdHis') . "-" . $for . '-180x180-' . rand(1, 500) . '.png';
+                $image_192x192      = date('YmdHis') . "-" . $for . '-192x192-' . rand(1, 500) . '.png';
 
                 //splash screen
-                $splash_640x1136    = date('YmdHis') . "-" . $for . '-640x1136-' . rand(1, 500) . '.jpg';
-                $splash_750x1334    = date('YmdHis') . "-" . $for . '-750x1334-' . rand(1, 500) . '.jpg';
-                $splash_1242x2208   = date('YmdHis') . "-" . $for . '-1242x2208-' . rand(1, 500) . '.jpg';
-                $splash_1125x2436   = date('YmdHis') . "-" . $for . '-1125x2436-' . rand(1, 500) . '.jpg';
-                $splash_828x1792    = date('YmdHis') . "-" . $for . '-828x1792-' . rand(1, 500) . '.jpg';
-                $splash_1242x2688   = date('YmdHis') . "-" . $for . '-1242x2688-' . rand(1, 500) . '.jpg';
-                $splash_1536x2048   = date('YmdHis') . "-" . $for . '-1536x2048-' . rand(1, 500) . '.jpg';
-                $splash_1668x2224   = date('YmdHis') . "-" . $for . '-1668x2224-' . rand(1, 500) . '.jpg';
-                $splash_1668x2388   = date('YmdHis') . "-" . $for . '-1668x2388-' . rand(1, 500) . '.jpg';
-                $splash_2048x2732   = date('YmdHis') . "-" . $for . '-2048x2732-' . rand(1, 500) . '.jpg';
+                $splash_640x1136    = date('YmdHis') . "-" . $for . '-640x1136-' . rand(1, 500) . '.png';
+                $splash_750x1334    = date('YmdHis') . "-" . $for . '-750x1334-' . rand(1, 500) . '.png';
+                $splash_1242x2208   = date('YmdHis') . "-" . $for . '-1242x2208-' . rand(1, 500) . '.png';
+                $splash_1125x2436   = date('YmdHis') . "-" . $for . '-1125x2436-' . rand(1, 500) . '.png';
+                $splash_828x1792    = date('YmdHis') . "-" . $for . '-828x1792-' . rand(1, 500) . '.png';
+                $splash_1242x2688   = date('YmdHis') . "-" . $for . '-1242x2688-' . rand(1, 500) . '.png';
+                $splash_1536x2048   = date('YmdHis') . "-" . $for . '-1536x2048-' . rand(1, 500) . '.png';
+                $splash_1668x2224   = date('YmdHis') . "-" . $for . '-1668x2224-' . rand(1, 500) . '.png';
+                $splash_1668x2388   = date('YmdHis') . "-" . $for . '-1668x2388-' . rand(1, 500) . '.png';
+                $splash_2048x2732   = date('YmdHis') . "-" . $for . '-2048x2732-' . rand(1, 500) . '.png';
 
                 $directory = 'images/icon/';
 
-                File::ensureDirectoryExists('public/'.$directory, 0777, true);
+                File::ensureDirectoryExists( $directory, 0777, true);
 
                 $originalImageUrl   = $directory . $originalImage;
                 $image_16x16_url    = $directory . $image_16x16;
@@ -92,116 +92,116 @@ trait ImageTrait
                 $splash_2048x2732_url   = $directory . $splash_2048x2732;
 
 
-                Image::make($requestImage)->save('public/'.$originalImageUrl);
-                Image::make($requestImage)->resize(16, 16,
+                Image::make($requestImage->getRealPath())->save( $originalImageUrl);
+                Image::make($requestImage->getRealPath())->resize(16, 16,
                     function ($constraint) {
                         $constraint->aspectRatio();
-                    })->save('public/'.$image_16x16_url, $encode_percentage);
+                    })->save( $image_16x16_url, $encode_percentage);
 
-                Image::make($requestImage)->resize(32, 32,
+                Image::make($requestImage->getRealPath())->resize(32, 32,
                     function ($constraint) {
                         $constraint->aspectRatio();
-                    })->save('public/'.$image_32x32_url, $encode_percentage);
+                    })->save( $image_32x32_url, $encode_percentage);
 
-                Image::make($requestImage)->resize(57, 57,
+                Image::make($requestImage->getRealPath())->resize(57, 57,
                     function ($constraint) {
                         $constraint->aspectRatio();
-                    })->save('public/'.$image_57x57_url, $encode_percentage);
+                    })->save( $image_57x57_url, $encode_percentage);
 
-                Image::make($requestImage)->resize(60, 60,
+                Image::make($requestImage->getRealPath())->resize(60, 60,
                     function ($constraint) {
                         $constraint->aspectRatio();
-                    })->save('public/'.$image_60x60_url, $encode_percentage);
+                    })->save( $image_60x60_url, $encode_percentage);
 
-                Image::make($requestImage)->resize(72, 72,
+                Image::make($requestImage->getRealPath())->resize(72, 72,
                     function ($constraint) {
                         $constraint->aspectRatio();
-                    })->save('public/'.$image_72x72_url, $encode_percentage);
+                    })->save( $image_72x72_url, $encode_percentage);
 
-                Image::make($requestImage)->resize(76, 76,
+                Image::make($requestImage->getRealPath())->resize(76, 76,
                     function ($constraint) {
                         $constraint->aspectRatio();
-                    })->save('public/'.$image_76x76_url, $encode_percentage);
+                    })->save( $image_76x76_url, $encode_percentage);
 
-                Image::make($requestImage)->resize(96, 96,
+                Image::make($requestImage->getRealPath())->resize(96, 96,
                     function ($constraint) {
                         $constraint->aspectRatio();
-                    })->save('public/'.$image_96x96_url, $encode_percentage);
+                    })->save( $image_96x96_url, $encode_percentage);
 
-                Image::make($requestImage)->resize(114, 114,
+                Image::make($requestImage->getRealPath())->resize(114, 114,
                     function ($constraint) {
                         $constraint->aspectRatio();
-                    })->save('public/'.$image_114x114_url, $encode_percentage);
+                    })->save( $image_114x114_url, $encode_percentage);
 
-                Image::make($requestImage)->resize(120, 120,
+                Image::make($requestImage->getRealPath())->resize(120, 120,
                     function ($constraint) {
                         $constraint->aspectRatio();
-                    })->save('public/'.$image_120x120_url, $encode_percentage);
+                    })->save( $image_120x120_url, $encode_percentage);
 
-                Image::make($requestImage)->resize(144, 144,
+                Image::make($requestImage->getRealPath())->resize(144, 144,
                     function ($constraint) {
                         $constraint->aspectRatio();
-                    })->save('public/'.$image_144x144_url, $encode_percentage);
+                    })->save( $image_144x144_url, $encode_percentage);
 
-                Image::make($requestImage)->resize(152, 152,
+                Image::make($requestImage->getRealPath())->resize(152, 152,
                     function ($constraint) {
                         $constraint->aspectRatio();
-                    })->save('public/'.$image_152x152_url, $encode_percentage);
+                    })->save( $image_152x152_url, $encode_percentage);
 
-                Image::make($requestImage)->resize(180, 180,
+                Image::make($requestImage->getRealPath())->resize(180, 180,
                     function ($constraint) {
                         $constraint->aspectRatio();
-                    })->save('public/'.$image_180x180_url, $encode_percentage);
+                    })->save( $image_180x180_url, $encode_percentage);
 
-                Image::make($requestImage)->resize(192, 192,
+                Image::make($requestImage->getRealPath())->resize(192, 192,
                     function ($constraint) {
                         $constraint->aspectRatio();
-                    })->save('public/'.$image_192x192_url, $encode_percentage);
+                    })->save( $image_192x192_url, $encode_percentage);
 
-                Image::make($requestImage)->resize(640, 1136,
+                Image::make($requestImage->getRealPath())->resize(640, 1136,
                     function ($constraint) {
                         $constraint->aspectRatio();
-                    })->save('public/'.$splash_640x1136_url, $encode_percentage);
-                Image::make($requestImage)->resize(750, 1334,
+                    })->save( $splash_640x1136_url, $encode_percentage);
+                Image::make($requestImage->getRealPath())->resize(750, 1334,
                     function ($constraint) {
                         $constraint->aspectRatio();
-                    })->save('public/'.$splash_750x1334_url, $encode_percentage);
-                Image::make($requestImage)->resize(1242, 2208,
+                    })->save( $splash_750x1334_url, $encode_percentage);
+                Image::make($requestImage->getRealPath())->resize(1242, 2208,
                     function ($constraint) {
                         $constraint->aspectRatio();
-                    })->save('public/'.$splash_1242x2208_url, $encode_percentage);
-                Image::make($requestImage)->resize(1125, 2436,
+                    })->save( $splash_1242x2208_url, $encode_percentage);
+                Image::make($requestImage->getRealPath())->resize(1125, 2436,
                     function ($constraint) {
                         $constraint->aspectRatio();
-                    })->save('public/'.$splash_1125x2436_url, $encode_percentage);
-                Image::make($requestImage)->resize(1125, 2436,
+                    })->save( $splash_1125x2436_url, $encode_percentage);
+                Image::make($requestImage->getRealPath())->resize(1125, 2436,
                     function ($constraint) {
                         $constraint->aspectRatio();
-                    })->save('public/'.$splash_1125x2436_url, $encode_percentage);
-                Image::make($requestImage)->resize(828, 1792,
+                    })->save( $splash_1125x2436_url, $encode_percentage);
+                Image::make($requestImage->getRealPath())->resize(828, 1792,
                     function ($constraint) {
                         $constraint->aspectRatio();
-                    })->save('public/'.$splash_828x1792_url, $encode_percentage);
-                Image::make($requestImage)->resize(1242, 2688,
+                    })->save( $splash_828x1792_url, $encode_percentage);
+                Image::make($requestImage->getRealPath())->resize(1242, 2688,
                     function ($constraint) {
                         $constraint->aspectRatio();
-                    })->save('public/'.$splash_1242x2688_url, $encode_percentage);
-                Image::make($requestImage)->resize(1536, 2048,
+                    })->save( $splash_1242x2688_url, $encode_percentage);
+                Image::make($requestImage->getRealPath())->resize(1536, 2048,
                     function ($constraint) {
                         $constraint->aspectRatio();
-                    })->save('public/'.$splash_1536x2048_url, $encode_percentage);
-                Image::make($requestImage)->resize(1668, 2224,
+                    })->save( $splash_1536x2048_url, $encode_percentage);
+                Image::make($requestImage->getRealPath())->resize(1668, 2224,
                     function ($constraint) {
                         $constraint->aspectRatio();
-                    })->save('public/'.$splash_1668x2224_url, $encode_percentage);
-                Image::make($requestImage)->resize(1668, 2388,
+                    })->save( $splash_1668x2224_url, $encode_percentage);
+                Image::make($requestImage->getRealPath())->resize(1668, 2388,
                     function ($constraint) {
                         $constraint->aspectRatio();
-                    })->save('public/'.$splash_1668x2388_url, $encode_percentage);
-                Image::make($requestImage)->resize(2048, 2732,
+                    })->save( $splash_1668x2388_url, $encode_percentage);
+                Image::make($requestImage->getRealPath())->resize(2048, 2732,
                     function ($constraint) {
                         $constraint->aspectRatio();
-                    })->save('public/'.$splash_2048x2732_url, $encode_percentage);
+                    })->save( $splash_2048x2732_url, $encode_percentage);
 
                 $images = array(
                     'originalImage_url'     => $originalImageUrl,
@@ -239,113 +239,113 @@ trait ImageTrait
                     $directory = 'images/seller/';
                 endif;
 
-                File::ensureDirectoryExists('public/'.$directory, 0777, true);
+                File::ensureDirectoryExists( $directory, 0777, true);
 
                 if ($for == 'admin_light_logo' || $for == 'admin_dark_logo'):
-                    $image_100x38       = date('YmdHis') . "-" . $for . '-100x38' . rand(1, 500) . '.jpg';
+                    $image_100x38       = date('YmdHis') . "-" . $for . '-100x38' . rand(1, 500) . '.png';
                     $image_100x38_url   = $directory . $image_100x38;
 
-                    Image::make($requestImage)->resize(100, 38, function ($constraint) {
+                    Image::make($requestImage->getRealPath())->resize(100, 38, function ($constraint) {
                         $constraint->aspectRatio();
-                    })->save('public/'.$image_100x38_url, $encode_percentage);
+                    })->save( $image_100x38_url, $encode_percentage);
 
                 elseif ($for == 'footer_logo'):
                     $image_89x33        = date('YmdHis') . "-" . $for . '-89x33' . rand(1, 500) . '.' . $extension;
                     $image_89x33_url    = $directory . $image_89x33;
 
-                    Image::make($requestImage)->resize(100, 38, function ($constraint) {
+                    Image::make($requestImage->getRealPath())->resize(100, 38, function ($constraint) {
                         $constraint->aspectRatio();
-                    })->save('public/'.$image_89x33_url, $encode_percentage);
+                    })->save( $image_89x33_url, $encode_percentage);
 
                 elseif ($for == 'light_logo' || $for == 'dark_logo'):
-                    $image_138x52       = date('YmdHis') . "-" . $for . '-138x52' . rand(1, 500) . '.jpg';
+                    $image_138x52       = date('YmdHis') . "-" . $for . '-138x52' . rand(1, 500) . '.png';
                     $image_138x52_url   = $directory . $image_138x52;
 
-                    Image::make($requestImage)->resize(138,52, function ($constraint) {
+                    Image::make($requestImage->getRealPath())->resize(138,52, function ($constraint) {
                         $constraint->aspectRatio();
-                    })->save('public/'.$image_138x52_url, $encode_percentage);
+                    })->save( $image_138x52_url, $encode_percentage);
 
                 elseif ($for == 'invoice_logo'):
                     $image_118x45       = date('YmdHis') . "-" . $for . '-118x45' . rand(1, 500) . '.' . $extension;
                     $image_118x45_url   = $directory . $image_118x45;
-                    Image::make($requestImage)->resize(118, 45,
+                    Image::make($requestImage->getRealPath())->resize(118, 45,
                         function ($constraint) {
                             $constraint->aspectRatio();
-                        })->save('public/'.$image_118x45_url);
+                        })->save( $image_118x45_url);
 
                 elseif ($for == 'payment_method_banner'):
-                    $image_payment      = date('YmdHis') . "-" . $for . '-48x25' . rand(1, 500) . '.jpg';
+                    $image_payment      = date('YmdHis') . "-" . $for . '-48x25' . rand(1, 500) . '.png';
                     $image_payment_url  = $directory . $image_payment;
-                    Image::make($requestImage)->save('public/'.$image_payment_url, $encode_percentage);
+                    Image::make($requestImage->getRealPath())->save( $image_payment_url, $encode_percentage);
 
                 elseif ($for == 'service_image'):
-                    $image_40x40        = date('YmdHis') . "-" . $for . '-40x40' . rand(1, 50) . '.jpg';
+                    $image_40x40        = date('YmdHis') . "-" . $for . '-40x40' . rand(1, 50) . '.png';
                     $image_40x40_url    = $directory . $image_40x40;
 
-                    Image::make($requestImage)->resize(60, 40,
+                    Image::make($requestImage->getRealPath())->resize(60, 40,
                         function ($constraint) {
                             $constraint->aspectRatio();
-                        })->save('public/'.$image_40x40_url,$encode_percentage);
+                        })->save( $image_40x40_url,$encode_percentage);
 
                 elseif ($for == 'seller_logo'):
 
-                    $image_197x152      = date('YmdHis') . "-" . $for . '-197x152' . rand(1, 50) . '.jpg';
-                    $image_320x320      = date('YmdHis') . "-" . $for . '-320x320' . rand(1, 50) . '.jpg';
-                    $image_120x80       = date('YmdHis') . "-" . $for . '-120x80' . rand(1, 50) . '.jpg';
-                    $image_82x82        = date('YmdHis') . "-" . $for . '-79x79' . rand(1, 50) . '.jpg';
+                    $image_197x152      = date('YmdHis') . "-" . $for . '-197x152' . rand(1, 50) . '.png';
+                    $image_320x320      = date('YmdHis') . "-" . $for . '-320x320' . rand(1, 50) . '.png';
+                    $image_120x80       = date('YmdHis') . "-" . $for . '-120x80' . rand(1, 50) . '.png';
+                    $image_82x82        = date('YmdHis') . "-" . $for . '-79x79' . rand(1, 50) . '.png';
 
                     $image_197x152_url  = $directory . $image_197x152;
                     $image_320x320_url  = $directory . $image_320x320;
                     $image_120x80_url   = $directory . $image_120x80;
                     $image_82x82_url    = $directory . $image_82x82;
 
-                    Image::make($requestImage)->resize(197, 152,
+                    Image::make($requestImage->getRealPath())->resize(197, 152,
                         function ($constraint) {
                             $constraint->aspectRatio();
-                        })->save('public/'.$image_197x152_url,$encode_percentage);
+                        })->save( $image_197x152_url,$encode_percentage);
 
-                    Image::make($requestImage)->resize(320, 320,
+                    Image::make($requestImage->getRealPath())->resize(320, 320,
                         function ($constraint) {
                             $constraint->aspectRatio();
-                        })->save('public/'.$image_320x320_url,$encode_percentage);
+                        })->save( $image_320x320_url,$encode_percentage);
 
-                    Image::make($requestImage)->resize(120, 80,
+                    Image::make($requestImage->getRealPath())->resize(120, 80,
                         function ($constraint) {
                             $constraint->aspectRatio();
-                        })->save('public/'.$image_120x80_url,$encode_percentage);
+                        })->save( $image_120x80_url,$encode_percentage);
 
-                    Image::make($requestImage)->resize(82, 82,
+                    Image::make($requestImage->getRealPath())->resize(82, 82,
                         function ($constraint) {
                             $constraint->aspectRatio();
-                        })->save('public/'.$image_82x82_url,$encode_percentage);
+                        })->save( $image_82x82_url,$encode_percentage);
 
                 elseif ($for == 'seller_banner'):
 
-                    $image_617x145      = date('YmdHis') . "-" . $for . '-617x145' . rand(1, 50) . '.jpg';
-                    $image_297x203      = date('YmdHis') . "-" . $for . '-297x203' . rand(1, 50) . '.jpg';
+                    $image_617x145      = date('YmdHis') . "-" . $for . '-617x145' . rand(1, 50) . '.png';
+                    $image_297x203      = date('YmdHis') . "-" . $for . '-297x203' . rand(1, 50) . '.png';
 
                     $image_617x145_url  = $directory . $image_617x145;
                     $image_297x203_url  = $directory . $image_297x203;
 
-                    Image::make($requestImage)->resize(617, 145,
+                    Image::make($requestImage->getRealPath())->resize(617, 145,
                         function ($constraint) {
                             $constraint->aspectRatio();
-                        })->save('public/'.$image_617x145_url,$encode_percentage);
+                        })->save( $image_617x145_url,$encode_percentage);
 
-                    Image::make($requestImage)->resize(297, 203,
+                    Image::make($requestImage->getRealPath())->resize(297, 203,
                         function ($constraint) {
                             $constraint->aspectRatio();
-                        })->save('public/'.$image_297x203_url,$encode_percentage);
+                        })->save( $image_297x203_url,$encode_percentage);
 
 
                 elseif ($for == 'popup_image'):
-                    $image_270x260      = date('YmdHis') . "-" . $for . '-270x260' . rand(1, 50) . '.jpg';
+                    $image_270x260      = date('YmdHis') . "-" . $for . '-270x260' . rand(1, 50) . '.png';
                     $image_270x260_url  = $directory . $image_270x260;
 
-                    Image::make($requestImage)->resize(270, 260,
+                    Image::make($requestImage->getRealPath())->resize(270, 260,
                         function ($constraint) {
                             $constraint->aspectRatio();
-                        })->save('public/'.$image_270x260_url, $encode_percentage);
+                        })->save( $image_270x260_url, $encode_percentage);
                 endif;
 
                 $originalImage          = date('YmdHis') . "-" . $for . rand(1, 500) . '.' . $extension;
@@ -354,12 +354,12 @@ trait ImageTrait
                 $originalImageUrl       = $directory . $originalImage;
                 $imageSmallTwoUrl       = $directory . $imageSmallTwo;
 
-                Image::make($requestImage)->save('public/'.$originalImageUrl, $encode_percentage);
+                Image::make($requestImage->getRealPath())->save( $originalImageUrl, $encode_percentage);
 
-                Image::make($requestImage)->resize(72, 72,
+                Image::make($requestImage->getRealPath())->resize(72, 72,
                     function ($constraint) {
                         $constraint->aspectRatio();
-                    })->save('public/'.$imageSmallTwoUrl,$encode_percentage);
+                    })->save( $imageSmallTwoUrl,$encode_percentage);
 
                 $images = array(
                     'storage'           => $storage,
@@ -391,22 +391,22 @@ trait ImageTrait
 
                 $directory = 'images/';
 
-                File::ensureDirectoryExists('public/'.$directory, 0777, true);
+                File::ensureDirectoryExists( $directory, 0777, true);
 
                 $originalImage              = date('YmdHis') . "-" . $for . rand(1, 500) . '.' . $extension;
-                $imageProfileThumbnail      = date('YmdHis') . "image_thumbnail" . $for . rand(1, 500) . '.jpg';
-                $image20X20                 = date('YmdHis') . "image_20X20" . $for . rand(1, 500) . '.jpg';
-                $image40X40                 = date('YmdHis') . "image_40X40" . $for . rand(1, 500) . '.jpg';
+                $imageProfileThumbnail      = date('YmdHis') . "image_thumbnail" . $for . rand(1, 500) . '.png';
+                $image20X20                 = date('YmdHis') . "image_20X20" . $for . rand(1, 500) . '.png';
+                $image40X40                 = date('YmdHis') . "image_40X40" . $for . rand(1, 500) . '.png';
 
                 $originalImageUrl           = $directory . $originalImage;
                 $imageProfileThumbnailUrl   = $directory . $imageProfileThumbnail;
                 $image20X20Url              = $directory . $image20X20;
                 $image40X40Url              = $directory . $image40X40;
 
-                Image::make($requestImage)->save('public/'.$originalImageUrl, $encode_percentage);
-                Image::make($requestImage)->fit(130, 130)->save('public/'.$imageProfileThumbnailUrl, $encode_percentage);
-                Image::make($requestImage)->fit(20, 20)->save('public/'.$image20X20Url, $encode_percentage);
-                Image::make($requestImage)->fit(40, 40)->save('public/'.$image40X40Url, $encode_percentage);
+                Image::make($requestImage->getRealPath())->save( $originalImageUrl, $encode_percentage);
+                Image::make($requestImage->getRealPath())->fit(130, 130)->save( $imageProfileThumbnailUrl, $encode_percentage);
+                Image::make($requestImage->getRealPath())->fit(20, 20)->save( $image20X20Url, $encode_percentage);
+                Image::make($requestImage->getRealPath())->fit(40, 40)->save( $image40X40Url, $encode_percentage);
 
                 $images = array(
                     'storage'           => $storage,
@@ -419,13 +419,13 @@ trait ImageTrait
 
                 $directory = 'images/';
 
-                File::ensureDirectoryExists('public/'.$directory, 0777, true);
+                File::ensureDirectoryExists( $directory, 0777, true);
 
                 $originalImage = date('YmdHis') . "-" . $for . rand(1, 500) . '.' . $extension;
 
                 $originalImageUrl = $directory . $originalImage;
 
-                Image::make($requestImage)->save('public/'.$originalImageUrl, $encode_percentage, 'png');
+                Image::make($requestImage->getRealPath())->save( $originalImageUrl, $encode_percentage, 'png');
 
                 $images = array(
                     'storage' => $storage,
@@ -434,16 +434,16 @@ trait ImageTrait
             else:
                 $directory = 'images/';
 
-                File::ensureDirectoryExists('public/'.$directory, 0777, true);
+                File::ensureDirectoryExists( $directory, 0777, true);
 
                 $originalImage          = date('YmdHis') . "_original_" . $for . rand(1, 500).'.' . $extension;
-                $image_40x40            = date('YmdHis') . "image_40x40" . $for . rand(1, 500) . '.' . 'jpg';
-                $image_72x72            = date('YmdHis') . "image_72x72" . $for . rand(1, 500) . '.' . 'jpg';
-                $image_190x230          = date('YmdHis') . "image_190x230" . $for . rand(1, 500) . '.' . 'jpg';
-                $image_110x122          = date('YmdHis') . "image_110x122" . $for . rand(1, 500) . '.' . 'jpg';
-                $image_320x320          = date('YmdHis') . "image_320x320" . $for . rand(1, 500) . '.' . 'jpg';
-                $image_387x280          = date('YmdHis') . "image_387x280" . $for . rand(1, 500) . '.' . 'jpg';
-                $image_thumbnail        = date('YmdHis') . "image_thumbnail" . $for . rand(1, 500) . '.' . 'jpg';
+                $image_40x40            = date('YmdHis') . "image_40x40" . $for . rand(1, 500) . '.' . 'png';
+                $image_72x72            = date('YmdHis') . "image_72x72" . $for . rand(1, 500) . '.' . 'png';
+                $image_190x230          = date('YmdHis') . "image_190x230" . $for . rand(1, 500) . '.' . 'png';
+                $image_110x122          = date('YmdHis') . "image_110x122" . $for . rand(1, 500) . '.' . 'png';
+                $image_320x320          = date('YmdHis') . "image_320x320" . $for . rand(1, 500) . '.' . 'png';
+                $image_387x280          = date('YmdHis') . "image_387x280" . $for . rand(1, 500) . '.' . 'png';
+                $image_thumbnail        = date('YmdHis') . "image_thumbnail" . $for . rand(1, 500) . '.' . 'png';
 
                 $originalImageUrl       = $directory . $originalImage;
                 $image_40x40_Url        = $directory . $image_40x40;
@@ -456,41 +456,41 @@ trait ImageTrait
 
                 $movable_image = $requestImage;
 
-                Image::make($requestImage)->resize(110, 122,
+                Image::make($requestImage->getRealPath())->resize(110, 122,
                     function ($constraint) {
                         $constraint->aspectRatio();
-                    })->save('public/'.$image_110x122_url,$encode_percentage);
+                    })->save( $image_110x122_url,$encode_percentage);
 
-                Image::make($requestImage)->resize(40, 40,
+                Image::make($requestImage->getRealPath())->resize(40, 40,
                     function ($constraint) {
                         $constraint->aspectRatio();
-                    })->save('public/'.$image_40x40_Url,$encode_percentage);
+                    })->save( $image_40x40_Url,$encode_percentage);
 
-                Image::make($requestImage)->resize(72, 72,
+                Image::make($requestImage->getRealPath())->resize(72, 72,
                     function ($constraint) {
                         $constraint->aspectRatio();
-                    })->save('public/'.$image_72x72_Url,$encode_percentage);
+                    })->save( $image_72x72_Url,$encode_percentage);
 
-                Image::make($requestImage)->resize(190, 230, function ($constraint) {
+                Image::make($requestImage->getRealPath())->resize(190, 230, function ($constraint) {
                     $constraint->aspectRatio();
-                }, true)->save('public/'.$image_190x230_Url,$encode_percentage);
+                }, true)->save( $image_190x230_Url,$encode_percentage);
 
                 Image::make($requestImage->getRealPath())->resize(320, 320,
                     function ($constraint) {
                         $constraint->aspectRatio();
-                    })->save('public/'.$image_320x320_Url,$encode_percentage);
+                    })->save( $image_320x320_Url,$encode_percentage);
 
-                Image::make($requestImage)->resize(180, 120,
+                Image::make($requestImage->getRealPath())->resize(180, 120,
                     function ($constraint) {
                         $constraint->aspectRatio();
-                    })->save('public/'.$image_thumbnail_Url,$encode_percentage);
+                    })->save( $image_thumbnail_Url,$encode_percentage);
 
-                Image::make($requestImage)->resize(387, 280,
+                Image::make($requestImage->getRealPath())->resize(387, 280,
                     function ($constraint) {
                         $constraint->aspectRatio();
-                    })->save('public/'.$image_387x280_Url,$encode_percentage);
+                    })->save( $image_387x280_Url,$encode_percentage);
 
-                $movable_image->move('public/images/',$originalImage);
+                $movable_image->move('images/',$originalImage);
 
                 $images = array(
                     'storage'           => $storage,
@@ -505,7 +505,7 @@ trait ImageTrait
                 );
             endif;
             $error = false;
-            $size = File::size(public_path('public/'.$originalImageUrl));
+            $size = File::size(public_path( $originalImageUrl));
             // $size = File::size(public_path($originalImageUrl));
             if ($storage == 'aws_s3' && array_key_exists('storage', $images)):
                 $response = $this->uploadToS3($images, $content_type);
@@ -561,7 +561,7 @@ trait ImageTrait
                 elseif ($storage == 'wasabi'):
                         Storage::disk('wasabi')->delete($file);
                 else:
-                    File::delete('public/'.$file);
+                    File::delete( $file);
                 endif;
             endforeach;
             return true;
@@ -571,7 +571,7 @@ trait ImageTrait
     }
 
     public function saveFile($requested_file, $type, $save_to_db = true)
-    {
+    {   
         if (!empty($requested_file) && $requested_file != 'null') :
             $image          = explode('.', $requested_file->getClientOriginalName());
             $extension      = $requested_file->getClientOriginalExtension();
@@ -584,19 +584,19 @@ trait ImageTrait
             $originalFile   = date('YmdHis') . "_original_" . rand(1, 500) . '.' . $extension;
             $directory      = 'files/';
 
-            File::ensureDirectoryExists('public/'.$directory, 0777, true);
+            File::ensureDirectoryExists( $directory, 0777, true);
 
             $originalFileUrl = $directory . $originalFile;
 
-            $requested_file->move('public/'.$directory, 'public/'.$originalFileUrl);
+            $requested_file->move( $directory,  $originalFileUrl);
             if($type == '_file_') return $originalFileUrl;
             if ($storage == 'aws_s3'):
                 $response = $this->uploadFileToS3($originalFileUrl, $content_type);
 
                 if ($response == true):
-                    $this->deleteFile('public/'.$originalFileUrl);
+                    $this->deleteFile( $originalFileUrl);
                 else:
-                    $this->deleteFile('public/'.$originalFileUrl);
+                    $this->deleteFile( $originalFileUrl);
                     return 's3_error';
                 endif;
 
@@ -604,9 +604,9 @@ trait ImageTrait
                 $response = $this->uploadFileToWasabi($originalFileUrl, $content_type);
 
                 if ($response == true):
-                    $this->deleteFile('public/'.$originalFileUrl);
+                    $this->deleteFile( $originalFileUrl);
                 else:
-                    $this->deleteFile('public/'.$originalFileUrl);
+                    $this->deleteFile( $originalFileUrl);
                     return 'wasabi_error';
                 endif;
             endif;
@@ -641,7 +641,7 @@ trait ImageTrait
             elseif ($storage == 'wasabi'):
                 Storage::disk('wasabi')->delete($file);
             else:
-                File::delete('public/'.$file);
+                File::delete( $file);
             endif;
 
             return true;
@@ -690,8 +690,8 @@ trait ImageTrait
     protected function uploadToS3($files, $contentType)
     {
         foreach (array_slice($files, 1) as $file):
-            if ($file != "" && file_exists('public/'.$file)):
-                Storage::disk('s3')->put($file, file_get_contents('public/'.$file), $contentType);
+            if ($file != "" && file_exists( $file)):
+                Storage::disk('s3')->put($file, file_get_contents( $file), $contentType);
             endif;
         endforeach;
         return true;
@@ -699,8 +699,8 @@ trait ImageTrait
 
     protected function uploadFileToS3($file, $contentType)
     {
-        if ($file != "" && file_exists('public/'.$file)):
-            Storage::disk('s3')->put($file, file_get_contents('public/'.$file), $contentType);
+        if ($file != "" && file_exists( $file)):
+            Storage::disk('s3')->put($file, file_get_contents( $file), $contentType);
             return true;
         endif;
         return false;
@@ -709,8 +709,8 @@ trait ImageTrait
     protected function uploadToWasabi($files, $contentType)
     {
         foreach (array_slice($files, 1) as $file):
-            if ($file != "" && file_exists('public/'.$file)):
-                Storage::disk('wasabi')->put($file, file_get_contents('public/'.$file), $contentType);
+            if ($file != "" && file_exists( $file)):
+                Storage::disk('wasabi')->put($file, file_get_contents( $file), $contentType);
             endif;
         endforeach;
         return true;
@@ -718,8 +718,8 @@ trait ImageTrait
 
     protected function uploadFileToWasabi($file, $contentType)
     {
-        if ($file != "" && file_exists('public/'.$file)):
-            Storage::disk('wasabi')->put($file, file_get_contents('public/'.$file), $contentType);
+        if ($file != "" && file_exists( $file)):
+            Storage::disk('wasabi')->put($file, file_get_contents( $file), $contentType);
             return true;
         endif;
         return false;
@@ -738,23 +738,23 @@ trait ImageTrait
                     if (!$slider):
                         Image::make(public_path($image->original_file), $image->storage)->resize($width, $height, function ($constraint) {
                             $constraint->aspectRatio();
-                        }, true)->resizeCanvas($width, $height, 'center', false, 'rgba(255, 255, 255, 0.00)')->save('public/'.$url, $this->getEncodePercentage(),'webp');
+                        }, true)->resizeCanvas($width, $height, 'center', false, 'rgba(255, 255, 255, 0.00)')->save( $url, $this->getEncodePercentage(),'webp');
                     else:
                         Image::make(public_path($image->original_file), $image->storage)->resize($width, $height,
                             function ($constraint) {
                                 $constraint->aspectRatio();
-                            })->save('public/'.$url, $this->getEncodePercentage(),'jpg');
+                            })->save( $url, $this->getEncodePercentage(),'png');
                     endif;
                 elseif ($image->storage == 'aws_s3'):
                     if (!$slider):
                         Image::make(get_media($image->original_file, $image->storage))->resize($width, $height, function ($constraint) {
                             $constraint->aspectRatio();
-                        }, true)->resizeCanvas($width, $height, 'center', false, 'rgba(255, 255, 255, 0.00)')->save('public/'.$url, $this->getEncodePercentage(),'webp');
+                        }, true)->resizeCanvas($width, $height, 'center', false, 'rgba(255, 255, 255, 0.00)')->save( $url, $this->getEncodePercentage(),'webp');
                     else:
                         Image::make(get_media($image->original_file, $image->storage))->resize($width, $height,
                             function ($constraint) {
                                 $constraint->aspectRatio();
-                            })->save('public/'.$url, $this->getEncodePercentage(),'jpg');
+                            })->save( $url, $this->getEncodePercentage(),'png');
                     endif;
                     $content_type = ['visibility' => 'public', 'ContentType' => 'image/' . $image->extension];
                     $this->uploadFileToS3($url, $content_type);
@@ -763,12 +763,12 @@ trait ImageTrait
                     if (!$slider):
                         Image::make(get_media($image->original_file, $image->storage))->resize($width, $height, function ($constraint) {
                             $constraint->aspectRatio();
-                        }, true)->resizeCanvas($width, $height, 'center', false, 'rgba(255, 255, 255, 0.00)')->save('public/'.$url, $this->getEncodePercentage(),'webp');
+                        }, true)->resizeCanvas($width, $height, 'center', false, 'rgba(255, 255, 255, 0.00)')->save( $url, $this->getEncodePercentage(),'webp');
                     else:
                         Image::make(get_media($image->original_file, $image->storage))->resize($width, $height,
                             function ($constraint) {
                                 $constraint->aspectRatio();
-                            })->save('public/'.$url, $this->getEncodePercentage(),'jpg');
+                            })->save( $url, $this->getEncodePercentage(),'png');
                     endif;
                     $content_type = ['visibility' => 'public', 'ContentType' => 'image/' . $image->extension];
                     $this->uploadFileToWasabi($url, $content_type);
@@ -796,19 +796,19 @@ trait ImageTrait
 
             $storage                    = settingHelper('default_storage') == 'aws_s3' ? 'aws_s3' : 'local';
 
-            Image::make($avater)->save('public/'.$originalImageUrl);
+            Image::make($avater)->save( $originalImageUrl);
             Image::make($avater)->resize(130, 130,
                 function ($constraint) {
                     $constraint->aspectRatio();
-                })->save('public/'.$imageProfileThumbnailUrl);
+                })->save( $imageProfileThumbnailUrl);
             Image::make($avater)->resize(20, 20,
                 function ($constraint) {
                     $constraint->aspectRatio();
-                })->save('public/'.$image20X20Url);
+                })->save( $image20X20Url);
             Image::make($avater)->resize(40, 40,
                 function ($constraint) {
                     $constraint->aspectRatio();
-                })->save('public/'.$image40X40Url);
+                })->save( $image40X40Url);
 
             $images = array(
                 'storage'           => $storage,
@@ -867,7 +867,7 @@ trait ImageTrait
             foreach ($images as $description_image) {
                 $image_name = Str::uuid().'.'.$description_image->getClientOriginalExtension();
                 $path = "images/description_images/$image_name";
-                $description_image->move('public/images/description_images', $image_name);
+                $description_image->move('images/description_images', $image_name);
                 $description_images[] = [
                     'image' => $path,
                     'storage' => $storage,
