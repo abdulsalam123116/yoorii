@@ -34,7 +34,7 @@ trait SmsSenderTrait
                 curl_setopt($ch, CURLOPT_POSTFIELDS, "{
                     \"Text\": \"$sms_body\",
                     \"Number\": \"$phone_number\",
-                    \"SenderId\": \"SMSCOUNTRY\",
+                    \"SenderId\": \"AD-Telebu\",
                     \"DRNotifyUrl\": \"".config('app.url')."/notifyurl\",
                     \"DRNotifyHttpMethod\": \"POST\",
                     \"Tool\": \"API\"
