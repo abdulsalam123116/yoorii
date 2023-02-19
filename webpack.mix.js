@@ -20,7 +20,7 @@ mix.js('resources/js/app.js', 'public/frontend/js')
     js_plugin + 'respond.min.js',
 ], 'public/frontend/js/plugin.js').webpackConfig({
     output: {
-        chunkFilename: "public/frontend/js/chunks-160/[name].[chunkhash].js",
+        chunkFilename: "frontend/js/chunks-160/[name].[chunkhash].js",
         publicPath: 'auto',
         path: path.resolve(__dirname, 'public'),
     },
