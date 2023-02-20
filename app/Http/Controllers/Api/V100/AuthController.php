@@ -107,6 +107,9 @@ class AuthController extends Controller
                 'last_name' => 'required|max:255',
                 'email' => 'required|max:255|unique:users,email',
                 'password' => 'required|min:5|max:30|confirmed',
+                'user_type' => 'required',
+                'license' => 'required_if:user_type == \'company\'|file',
+                'vat' => 'file'
             ]);
             if ($validator->fails()) {
                 if($validator->messages()->get('email')){

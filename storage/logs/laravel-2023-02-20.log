@@ -1,0 +1,4 @@
+[2023-02-20 04:29:06] local.ERROR: Out of memory (allocated 10485760) (tried to allocate 655360 bytes) {"exception":"[object] (Symfony\\Component\\ErrorHandler\\Error\\FatalError(code: 0): Out of memory (allocated 10485760) (tried to allocate 655360 bytes) at E:\\raqmi plus\\yoori\\ass\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\Model.php:1748)
+[stacktrace]
+#0 {main}
+"} 
