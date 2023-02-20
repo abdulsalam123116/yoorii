@@ -1,5 +1,6 @@
 /node_modules
 /public/hot
+/routes
 
 #/public/frontend/js/frontendChunks/*
 #/public/frontend/css/app.css
@@ -20,6 +21,5 @@ npm-debug.log
 yarn-error.log
 /.idea
 /.vscode
-
 !public/images/.gitkeep
 *.zip
