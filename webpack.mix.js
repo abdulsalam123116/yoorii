@@ -2,8 +2,8 @@ const mix = require('laravel-mix');
 const CompressionPlugin = require("compression-webpack-plugin");
 const path = require('path');
 
-let css_plugin = 'frontend/css/';
-let js_plugin = 'frontend/js/';
+let css_plugin = 'public/frontend/css/';
+let js_plugin = 'public/frontend/js/';
 mix.setResourceRoot(process.env.MIX_ASSET_URL);
 
 mix.js('resources/js/app.js', 'frontend/js')

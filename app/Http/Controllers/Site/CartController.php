@@ -71,7 +71,6 @@ class CartController extends Controller
             $response = $this->cart->addToCart($request, $product,authUser());
 
             DB::commit();
-
             if (is_string($response) && $response == 'out_of_stock')
                 return response()->json([
                     'error' => __('Product is out of stock')

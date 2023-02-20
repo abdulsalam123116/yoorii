@@ -82,11 +82,11 @@ class CartRepository implements CartInterface
         if(!$product_stock) {
             $product_stock = $product->firstStock;
         }
-
+        
         if ($product_stock->current_stock < $request['quantity']) {
             return 'out_of_stock';
         }
-
+        
         $price = $product_stock->price;
 
         $discount = 0.00;
@@ -140,13 +140,11 @@ class CartRepository implements CartInterface
         if ($product->current_stock < $request['quantity']) {
             return 'out_of_stock';
         }
-
         $parse_cart = $this->userCarts($request, $carts, $variant, $product, $price, $discount, $tax, $shipping_cost,$user,$trx_id);
-
+        
         if (is_string($parse_cart) && $parse_cart == 'out_of_stock') {
             return 'out_of_stock';
         }
-
         return $parse_cart;
     }
 
@@ -156,10 +154,11 @@ class CartRepository implements CartInterface
             $cart_exist = false;
             foreach ($carts as $cart_item):
                 $cart_product       = $this->product->all()->where('id', $cart_item['product_id'])->first();
-
-                $product_stock      = $cart_product->stock->where('name', $variant)->first();
+                $product_stock      = $cart_product->stock->first();
+                // $product_stock      = $cart_product->stock->where('name', $variant)->first();
+                
                 $current_stock      = $product_stock ? $product_stock->current_stock : 0;
-
+                
                 if (($current_stock < $cart_item['quantity'] + $request['quantity']) && $variant == $cart_item['variant']):
                     return 'out_of_stock';
                 endif;

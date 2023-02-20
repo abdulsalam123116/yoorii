@@ -30,7 +30,7 @@
                              v-model="payment_form.payment_type"
                              id="network" name="radio">
                       <label for="network">
-                        <img :src="getUrl('public/images/payment-method/network.svg')" alt="network"
+                        <img :src="getUrl('images/payment-method/network.svg')" alt="network"
                              class="img-fluid">
                         {{ lang.pay_with_network }}
                       </label>
@@ -42,7 +42,7 @@
                              v-model="payment_form.payment_type"
                              id="paypal" name="radio">
                       <label for="paypal">
-                        <img :src="getUrl('public/images/payment-method/paypal.svg')" alt="paypal"
+                        <img :src="getUrl('images/payment-method/paypal.svg')" alt="paypal"
                              class="img-fluid">
                         {{ lang.pay_with_payPal }}
                       </label>
@@ -53,7 +53,7 @@
                       <input type="radio" id="stripe" @change="razorPayRemove" value="stripe"
                              v-model="payment_form.payment_type" name="radio">
                       <label for="stripe">
-                        <img :src="getUrl('public/images/payment-method/stripe.svg')" alt="stripe"
+                        <img :src="getUrl('images/payment-method/stripe.svg')" alt="stripe"
                              class="img-fluid">
                         {{ lang.pay_with_stripe }}
                       </label>
@@ -65,7 +65,7 @@
                              v-model="payment_form.payment_type"
                              id="ssl_commerze" value="ssl_commerze">
                       <label for="ssl_commerze">
-                        <img :src="getUrl('public/images/payment-method/sslcommerze.svg')"
+                        <img :src="getUrl('images/payment-method/sslcommerze.svg')"
                              alt="sslcommerze" width="90">
                         {{ lang.pay_with_sSLCOMMERZE }}
                       </label>
@@ -76,7 +76,7 @@
                       <input type="radio" id="paytm" value="paytm" @change="razorPayRemove"
                              v-model="payment_form.payment_type" name="radio">
                       <label for="paytm">
-                        <img :src="getUrl('public/images/payment-method/paytm.svg')" alt="paytm"
+                        <img :src="getUrl('images/payment-method/paytm.svg')" alt="paytm"
                              class="img-fluid">
                         {{ lang.pay_with_paytm }}
                       </label>
@@ -88,7 +88,7 @@
                              v-model="payment_form.payment_type" @change="integrateRazorPay"
                              name="radio">
                       <label for="razor_pay">
-                        <img :src="getUrl('public/images/payment-method/razorpay.svg')" alt="razorpay"
+                        <img :src="getUrl('images/payment-method/razorpay.svg')" alt="razorpay"
                              width="90"
                              class="img-fluid">
                         {{ lang.pay_with_razorpay }}
@@ -101,7 +101,7 @@
                       <input type="radio" id="jazzCash" @change="razorPayRemove" value="jazz_cash"
                              v-model="payment_form.payment_type" name="radio">
                       <label for="jazzCash">
-                        <img :src="getUrl('public/images/payment-method/jazzCash.svg')" alt="jazz_cash"
+                        <img :src="getUrl('images/payment-method/jazzCash.svg')" alt="jazz_cash"
                              width="90"
                              class="img-fluid">
                         {{ lang.pay_with_jazzCash }}
@@ -113,7 +113,7 @@
                       <input type="radio" id="mollie" @change="razorPayRemove" value="mollie"
                              v-model="payment_form.payment_type" name="radio">
                       <label for="mollie">
-                        <img :src="getUrl('public/images/payment-method/mollie.svg')" alt="mollie"
+                        <img :src="getUrl('images/payment-method/mollie.svg')" alt="mollie"
                              width="90"
                              class="img-fluid">
                         {{ lang.pay_with_mollie }}
@@ -125,7 +125,7 @@
                       <input type="radio" id="paystack" @change="razorPayRemove" value="paystack"
                              v-model="payment_form.payment_type" name="radio">
                       <label for="paystack">
-                        <img :src="getUrl('public/images/payment-method/paystack.svg')" alt="paystack"
+                        <img :src="getUrl('images/payment-method/paystack.svg')" alt="paystack"
                              width="90"
                              class="img-fluid">
                         {{ lang.pay_with_paystack }}
@@ -137,7 +137,7 @@
                       <input type="radio" id="flutter_wave" @change="razorPayRemove" value="flutter_wave"
                              v-model="payment_form.payment_type" name="radio">
                       <label for="flutter_wave">
-                        <img :src="getUrl('public/images/payment-method/fw.svg')" alt="flutter_wave"
+                        <img :src="getUrl('images/payment-method/fw.svg')" alt="flutter_wave"
                              width="90"
                              class="img-fluid">
                         {{ lang.pay_with_flutter }}
@@ -149,7 +149,7 @@
                       <input type="radio" id="mercadopago" @change="razorPayRemove" value="mercadopago"
                              v-model="payment_form.payment_type" name="radio">
                       <label for="mercadopago">
-                        <img :src="getUrl('public/images/payment-method/mercado-pago.svg')"
+                        <img :src="getUrl('images/payment-method/mercado-pago.svg')"
                              alt="mercadopago"
                              width="90" class="img-fluid">{{ lang.pay_with_mercadopago }}</label>
                     </div>
@@ -160,7 +160,7 @@
                       <input type="radio" id="mid_trans" @change="razorPayRemove" value="mid_trans"
                              v-model="payment_form.payment_type" name="radio">
                       <label for="mid_trans">
-                        <img :src="getUrl('public/images/payment-method/midtrans.svg')" alt="mid_trans"
+                        <img :src="getUrl('images/payment-method/midtrans.svg')" alt="mid_trans"
                              width="90" class="img-fluid">{{ lang.pay_with_mid_trans }}</label>
                     </div>
                   </li>
@@ -169,7 +169,7 @@
                       <input type="radio" id="telr" @change="razorPayRemove" value="telr"
                              v-model="payment_form.payment_type" name="radio">
                       <label for="telr">
-                        <img :src="getUrl('public/images/payment-method/telr.svg')" alt="telr"
+                        <img :src="getUrl('images/payment-method/telr.svg')" alt="telr"
                              width="90" class="img-fluid">{{ lang.pay_with_telr }}</label>
                     </div>
                   </li>
@@ -178,7 +178,7 @@
                       <input type="radio" id="google_pay" @change="razorPayRemove" value="google_pay"
                              v-model="payment_form.payment_type" name="radio">
                       <label for="google_pay">
-                        <img :src="getUrl('public/images/payment-method/google_pay.svg')"
+                        <img :src="getUrl('images/payment-method/google_pay.svg')"
                              alt="google_pay"
                              width="90" class="img-fluid">{{ lang.pay_with_google_pay }}</label>
                     </div>
@@ -188,7 +188,7 @@
                       <input type="radio" id="bkash" @change="razorPayRemove" value="bkash"
                              v-model="payment_form.payment_type" name="radio">
                       <label for="bkash">
-                        <img :src="getUrl('public/images/payment-method/bKash.svg')"
+                        <img :src="getUrl('images/payment-method/bKash.svg')"
                              alt="bkash"
                              width="90" class="img-fluid">{{ lang.pay_with_bkash }}</label>
                     </div>
@@ -198,7 +198,7 @@
                       <input type="radio" id="nagad" @change="razorPayRemove" value="nagad"
                              v-model="payment_form.payment_type" name="radio">
                       <label for="nagad">
-                        <img :src="getUrl('public/images/payment-method/nagad.svg')"
+                        <img :src="getUrl('images/payment-method/nagad.svg')"
                              alt="nagad"
                              width="90" class="img-fluid">{{ lang.pay_with_nagad }}</label>
                     </div>
@@ -208,7 +208,7 @@
                       <input type="radio" id="amarpay" @change="razorPayRemove" value="amarpay"
                              v-model="payment_form.payment_type" name="radio">
                       <label for="amarpay">
-                        <img :src="getUrl('public/images/payment-method/amarpay.svg')"
+                        <img :src="getUrl('images/payment-method/amarpay.svg')"
                              alt="aamarpay"
                              width="90" class="img-fluid">{{ lang.pay_with_amarpay }}</label>
                     </div>
@@ -218,7 +218,7 @@
                       <input type="radio" id="skrill" @change="razorPayRemove" value="skrill"
                              v-model="payment_form.payment_type" name="radio">
                       <label for="skrill">
-                        <img :src="getUrl('public/images/payment-method/skrill.svg')"
+                        <img :src="getUrl('images/payment-method/skrill.svg')"
                              alt="skrill"
                              width="90" class="img-fluid">{{ lang.pay_with_skrill }}</label>
                     </div>
@@ -228,7 +228,7 @@
                       <input type="radio" id="iyzico" @change="razorPayRemove" value="iyzico"
                              v-model="payment_form.payment_type" name="radio">
                       <label for="iyzico">
-                        <img :src="getUrl('public/images/payment-method/iyzico.svg')"
+                        <img :src="getUrl('images/payment-method/iyzico.svg')"
                              alt="iyzico"
                              width="90" class="img-fluid">{{ lang.pay_with_iyzico }}</label>
                     </div>
@@ -238,7 +238,7 @@
                       <input type="radio" id="kkiapay" @change="razorPayRemove" value="kkiapay"
                              v-model="payment_form.payment_type" name="radio">
                       <label for="kkiapay">
-                        <img :src="getUrl('public/images/payment-method/kkiapay.svg')"
+                        <img :src="getUrl('images/payment-method/kkiapay.svg')"
                              alt="kkiapay"
                              width="90" class="img-fluid">{{ lang.pay_with_kkiapay }}</label>
                     </div>
@@ -250,7 +250,7 @@
                              value="pay_later"
                              v-model="payment_form.payment_type" name="radio">
                       <label for="pay_later">
-                        <img :src="getUrl('public/images/payment-method/paylater.svg')" :alt="payment_form.payment_type"
+                        <img :src="getUrl('images/payment-method/paylater.svg')" :alt="payment_form.payment_type"
                              width="90"
                              class="img-fluid">
                         {{ lang.pay_later }}
@@ -263,7 +263,7 @@
                              value="cash_on_delivery"
                              v-model="payment_form.payment_type" name="radio">
                       <label for="cash">
-                        <img :src="getUrl('public/images/payment-method/cash.svg')" :alt="payment_form.payment_type"
+                        <img :src="getUrl('images/payment-method/cash.svg')" :alt="payment_form.payment_type"
                              class="img-fluid">
                         {{ lang.cash_on_delivery }}
                       </label>
@@ -603,7 +603,7 @@ export default {
         myScript.setAttribute('data-prefill.email', '');
         myScript.setAttribute('data-prefill.address', '');
         myScript.setAttribute('data-theme.color', this.settings.menu_background_color);
-        myScript.setAttribute('src', this.getUrl('public/frontend/js/razor_pay_checkout.js'));
+        myScript.setAttribute('src', this.getUrl('frontend/js/razor_pay_checkout.js'));
         // Append script
         this.$refs.razor_pay.insertAdjacentElement('afterend', myScript);
       }
