@@ -108,8 +108,8 @@ class AuthController extends Controller
                 'email' => 'required|max:255|unique:users,email',
                 'password' => 'required|min:5|max:30|confirmed',
                 'user_type' => 'required',
-                'license' => 'required_if:user_type == \'company\'|file',
-                'vat' => 'file'
+                'license' => 'required_if:user_type,==,company|mimes:pdf,PDF|max:5120',
+                'vat' => 'mimes:pdf,PDF|max:5120'
             ]);
             if ($validator->fails()) {
                 if($validator->messages()->get('email')){
@@ -124,7 +124,7 @@ class AuthController extends Controller
             $activation = Activation::create($user);
 
             sendMail($user, $activation->code, 'verify_email');
-            $this->sendmail($request->email, 'Registration', $user, 'email.auth.activate-account-email',url('/') . '/activation/' . $request->email . '/' . $activation->code);
+            $this->sendMail($request->email, 'Registration', $user, 'email.auth.activate-account-email',url('/') . '/activation/' . $request->email . '/' . $activation->code);
             return $this->responseWithSuccess(__('Check your mail to verify your account'),[],200);
         } catch (\Exception $e) {
             return $this->responseWithError($e->getMessage(),[],500);
