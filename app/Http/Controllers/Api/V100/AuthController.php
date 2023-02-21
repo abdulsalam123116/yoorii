@@ -123,7 +123,7 @@ class AuthController extends Controller
             $user = Sentinel::register($request->all());
             $activation = Activation::create($user);
 
-            sendMail($user, $activation->code, 'verify_email');
+            // sendMail($user, $activation->code, 'verify_email');
             $this->sendMail($request->email, 'Registration', $user, 'email.auth.activate-account-email',url('/') . '/activation/' . $request->email . '/' . $activation->code);
             return $this->responseWithSuccess(__('Check your mail to verify your account'),[],200);
         } catch (\Exception $e) {
