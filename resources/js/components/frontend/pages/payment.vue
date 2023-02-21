@@ -244,7 +244,7 @@
                     </div>
                   </li>
 
-                  <li v-if="!code && settings.pay_later_system == 1 && authUser && authUser.accept_cod == 1">
+                  <!-- <li v-if="!code && settings.pay_later_system == 1 && check_cod && authUser && authUser.accept_cod == 1">
                     <div class="input-checkbox">
                       <input type="radio" id="pay_later" @change="razorPayRemove"
                              value="pay_later"
@@ -256,7 +256,7 @@
                         {{ lang.pay_later }}
                       </label>
                     </div>
-                  </li>
+                  </li> -->
                   <li v-if="payment_form.total > 0 && !code && !check_cod && authUser.accept_cod == 1">
                     <div class="input-checkbox">
                       <input type="radio" id="cash" @change="razorPayRemove"
@@ -549,9 +549,9 @@ export default {
           this.jazz_url = response.data.jazz_url;
           this.mid_trans_token = response.data.mid_trans_token;
 
-          if (response.data.check_cod) {
-            this.check_cod = response.data.check_cod;
-          }
+          // if (response.data.check_cod) {
+          //   this.check_cod = response.data.check_cod;
+          // }
 
           if (orders) {
             for (let i = 0; i < orders.length; i++) {
