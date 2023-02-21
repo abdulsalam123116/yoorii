@@ -195,7 +195,7 @@
                                 </li>
                             @endif
 
-                            @if(settingHelper('pay_later_system') == 1 && authUser())
+                           {{--  @if(settingHelper('pay_later_system') == 1 && authUser())
                                 <li>
                                     <div class="input-checkbox">
                                         <input type="radio" id="pay_later"
@@ -208,14 +208,14 @@
                                         </label>
                                     </div>
                                 </li>
-                            @endif
-                            @if(!$check_cod)
+                            @endif --}}
+                            @if(!$check_cod && authUser()->accept_cod == 1)
                                 <li>
                                     <div class="input-checkbox">
                                         <input type="radio" id="cash"
                                                value="cash_on_delivery" name="payment">
                                         <label for="cash">
-                                            <img src="{{ url('public/images/payment-method/cash.svg') }}" alt="cash"
+                                            <img src="{{ url('images/payment-method/cash.svg') }}" alt="cash"
                                                  class="img-fluid">
                                             {{ __('cash_on_delivery') }}
                                         </label>
