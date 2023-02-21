@@ -42,7 +42,7 @@ class CartController extends Controller
             $carts = $this->cart->cartList($user,$request->all());
             $checkouts = $this->cart->checkoutCoupon($carts, ['coupon'],$user);
 
-            $results =[];
+            $results = [];
             $shipping_cost = $tax = $sub_total = $discount = 0;
 
             foreach ($checkouts as $key=> $checkout) {

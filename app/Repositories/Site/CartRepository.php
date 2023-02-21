@@ -779,7 +779,7 @@ class CartRepository implements CartInterface
         {
             $carts = Cart::with('product.stock:id,product_id,image,name,sku,current_stock',
                 'product:slug,user_id,price,id,thumbnail,minimum_order_quantity,is_refundable,current_stock,shipping_fee_depend_on_quantity,special_discount,special_discount_start,special_discount_end,special_discount_type,is_digital','seller:user_id,shop_name,logo')
-                ->where('user_id', $user->id)->latest()->get();
+                ->where('user_id', $user->id)->get();
         }
         else{
             if (array_key_exists('trx_id',$data))
@@ -794,7 +794,7 @@ class CartRepository implements CartInterface
 
             $carts = Cart::with('product.stock:id,product_id,image,name,sku,current_stock',
                 'product:slug,user_id,price,id,thumbnail,minimum_order_quantity,is_refundable,current_stock,shipping_fee_depend_on_quantity,special_discount,special_discount_start,special_discount_end,special_discount_type,is_digital','seller:user_id,shop_name,logo')
-                ->where('user_id', getWalkInCustomer()->id)->where('trx_id',$trx_id)->latest()->get();
+                ->where('user_id', getWalkInCustomer()->id)->where('trx_id',$trx_id)->get();
         }
 
         return $carts;
