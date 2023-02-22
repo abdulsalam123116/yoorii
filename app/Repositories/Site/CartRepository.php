@@ -361,7 +361,8 @@ class CartRepository implements CartInterface
 
         //get the requested cart item and product price by stock
         $product        = $this->product->get($cart_item->product_id);
-        $product_stock  = $product->stock->where('name', $cart_item->variant)->first();
+        $product_stock  = $product->stock->first();
+        // $product_stock  = $product->stock->where('name', $cart_item->variant)->first();
         $quantity       = $product_stock->current_stock;
         $price          = $product_stock->price;
 
